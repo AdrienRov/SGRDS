@@ -1,0 +1,140 @@
+CRITICAL - 2024-01-28 12:20:31 --> Undefined property: App\Controllers\Test::$load
+in APPPATH\Controllers\Test.php on line 8.
+ 1 APPPATH\Controllers\Test.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Test::$load', 'C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\app\\Controllers\\Test.php', 8)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 12:23:36 --> Undefined property: App\Controllers\Test::$load
+in APPPATH\Controllers\Test.php on line 8.
+ 1 APPPATH\Controllers\Test.php(8): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Test::$load', 'C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\app\\Controllers\\Test.php', 8)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 12:24:24 --> Undefined property: App\Controllers\Test::$load
+in APPPATH\Controllers\Test.php on line 9.
+ 1 APPPATH\Controllers\Test.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Test::$load', 'C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\app\\Controllers\\Test.php', 9)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 12:26:18 --> Undefined property: App\Controllers\Test::$load
+in APPPATH\Controllers\Test.php on line 9.
+ 1 APPPATH\Controllers\Test.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Test::$load', 'C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\app\\Controllers\\Test.php', 9)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 12:26:19 --> Undefined property: App\Controllers\Test::$load
+in APPPATH\Controllers\Test.php on line 9.
+ 1 APPPATH\Controllers\Test.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Test::$load', 'C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\app\\Controllers\\Test.php', 9)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 12:26:27 --> Undefined property: App\Controllers\Test::$load
+in APPPATH\Controllers\Test.php on line 9.
+ 1 APPPATH\Controllers\Test.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Test::$load', 'C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\app\\Controllers\\Test.php', 9)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 12:26:28 --> Undefined property: App\Controllers\Test::$load
+in APPPATH\Controllers\Test.php on line 9.
+ 1 APPPATH\Controllers\Test.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Test::$load', 'C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\app\\Controllers\\Test.php', 9)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 12:27:06 --> Undefined property: App\Controllers\Test::$load
+in APPPATH\Controllers\Test.php on line 10.
+ 1 APPPATH\Controllers\Test.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Test::$load', 'C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\app\\Controllers\\Test.php', 10)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 12:27:23 --> Undefined property: App\Controllers\Test::$load
+in APPPATH\Controllers\Test.php on line 10.
+ 1 APPPATH\Controllers\Test.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Test::$load', 'C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\app\\Controllers\\Test.php', 10)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 12:27:25 --> Undefined property: App\Controllers\Test::$load
+in APPPATH\Controllers\Test.php on line 10.
+ 1 APPPATH\Controllers\Test.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Test::$load', 'C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\app\\Controllers\\Test.php', 10)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 13:08:07 --> Invalid file: "header.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('header.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('header', [], true)
+ 3 APPPATH\Controllers\Test.php(8): view('header')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 13:09:16 --> Invalid file: "header.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('header.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('header', [], true)
+ 3 APPPATH\Controllers\Test.php(8): view('header')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 13:09:42 --> Invalid file: "header.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('header.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('header', [], true)
+ 3 APPPATH\Controllers\Test.php(8): view('header')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 13:09:57 --> Invalid file: "header.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('header.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('header', [], true)
+ 3 APPPATH\Controllers\Test.php(8): view('header')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 13:10:08 --> Invalid file: "header.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('header.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('header', [], true)
+ 3 APPPATH\Controllers\Test.php(8): view('header')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Test->index()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
+CRITICAL - 2024-01-28 13:24:01 --> Invalid file: "test.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('test.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('test', [], true)
+ 3 APPPATH\Controllers\ControllerAccueil.php(9): view('test')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ControllerAccueil->index()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ControllerAccueil))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\adrie\\Desktop\\Troisième année\\SGRDS\\public\\index.php')
