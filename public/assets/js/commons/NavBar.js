@@ -4,6 +4,7 @@ function loadPage(page) {
         method: 'GET',
         success: function (data) {
             $('body').html(data);
+            window.history.pushState('', '', '/' + page);
         }
     });
 }
