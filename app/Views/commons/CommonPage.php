@@ -14,35 +14,32 @@
     </head>
 
     <body>
+        <header class="bg-gray-800 text-white py-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <!-- Logo à gauche -->
+                <div class="flex items-center">
+                    <!-- Logo IUT le havre-->
+                    <img src="chemin/vers/votre-logo.png" alt="Logo" class="h-8 w-8 mr-2">
+                    <a href="#" data-page="accueil" class="font-bold page-link">Accueil</a>
+                </div>
 
-<header class="bg-gray-800 text-white py-4">
-    <div class="container mx-auto flex justify-between items-center">
-        <!-- Logo à gauche -->
-        <div class="flex items-center">
-            <!-- Logo IUT le havre-->
-            <img src="chemin/vers/votre-logo.png" alt="Logo" class="h-8 w-8 mr-2">
-            <a href="#" data-page="accueil" class="font-bold page-link">Accueil</a>
-        </div>
-
-        <!-- Onglets à droite -->
-        <div class="flex items-center">
-            <a href="#" data-page="absences" class="ml-4 page-link">Absences</a>
-            <a href="#" data-page="rattrapages" class="ml-4 page-link">Rattrapages</a>
-        </div>
-    </div>
-</header>
-
-<main>
-    <?= $content; ?>
-</main>
-<footer class="bg-gray-800 text-white py-4">
-        <div class="container mx-auto">
-            <div class="flex justify-center">
-                <p>&copy; 2024 IUT le Havre. Tous droits réservés.</p>
+                <!-- Onglets à droite -->
+                <div class="flex items-center">
+                    <a href="#" data-page="absences" class="ml-4 page-link">Absences</a>
+                    <a href="#" data-page="rattrapages" class="ml-4 page-link">Rattrapages</a>
+                </div>
             </div>
-        </div>
-    </footer>
-    <script src="./assets/js/commons/NavBar.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-</body>
+        </header>
+
+        <?= $content; ?>
+        <footer class="bg-gray-800 text-white py-4">
+            <div class="container mx-auto">
+                <div class="flex justify-center">
+                    <p>&copy; 2024 IUT le Havre. Tous droits réservés.</p>
+                </div>
+            </div>
+        </footer>
+        <script src="./assets/js/commons/NavBar.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    </body>
 </html>
