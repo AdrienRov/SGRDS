@@ -4,7 +4,7 @@ namespace App\Entities;
 
 use CodeIgniter\Entity\Entity;
 
-class Semester extends Entity
+class Student extends Entity
 {
     // ...
 }

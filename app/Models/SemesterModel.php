@@ -2,11 +2,11 @@
 
 namespace App\Models;
 use CodeIgniter\Model;
-class Semester extends Model
+class SemesterModel extends Model
 {
-    protected $table         = 'semester';
+    protected $table         = 'semesters';
     protected $allowedFields = [
-        'username', 'email', 'password',
+        'annee', 'semester'
     ];
     protected $returnType    = \App\Entities\Semester::class;
     protected $useTimestamps = true;
