@@ -1,0 +1,30 @@
+@import "colors.css";
+
+header
+{
+	background-color: var(--orange-color);
+}
+
+#logo
+{
+	background-color: var(--gray-color);
+    text-align: center;
+}
+
+body
+{
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+main
+{
+	flex: 1;
+}
+
+#logo>a>img
+{
+	max-width: 100%;
+	max-height: 100%;
+}
