@@ -26,15 +26,24 @@ class DirectorDashboard extends BaseController
         $studentModel = new \App\Models\StudentModel();
         $students = $studentModel->findAll();
 
+        $session = \Config\Services::session();
+        $user = $session->get('user');
+
+        if ($session->has('user') || $user->type = 1) {
+            return view('commons/CommonPage', [
+                'content' => view('DirectorDashboard', [
+                    'semesters' => $semesters,
+                    'resources' => $resources,
+                    'users' => $users,
+                    'userResources' => $userResources,
+                    'students' => $students
+                ])
+            ]);
+        }
         return view('commons/CommonPage', [
-            'content' => view('DirectorDashboard', [
-                'semesters' => $semesters,
-                'resources' => $resources,
-                'users' => $users,
-                'userResources' => $userResources,
-                'students' => $students
-            ])
+            'content' => view('Connexion')
         ]);
+        
     }
 
     public function AjoutSemestre() {

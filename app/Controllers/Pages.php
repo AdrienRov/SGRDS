@@ -11,6 +11,7 @@ class Pages extends BaseController
         ]);
     }
 
+
     public function Accueil()
     {
         $session = \Config\Services::session();
@@ -21,6 +22,9 @@ class Pages extends BaseController
             ]);
         }
 
+        if ($session->get('user')->type == 1) {
+            return redirect()->to('/DirectorDashboard');
+        }
         return view('commons/CommonPage', [
             'content' => view('Accueil')
         ]);
