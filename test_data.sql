@@ -24,3 +24,7 @@ INSERT INTO exams (date, duration, class, type, status, comment, semester_id, re
 INSERT INTO participations (status, exam_id, student_id, created_at, updated_at) VALUES ('1', 1, 1, '2018-01-01 00:00:00', '2018-01-01 00:00:00');
 INSERT INTO participations (status, exam_id, student_id, created_at, updated_at) VALUES ('1', 1, 2, '2018-01-01 00:00:00', '2018-01-01 00:00:00');
 INSERT INTO participations (status, exam_id, student_id, created_at, updated_at) VALUES ('1', 1, 3, '2018-01-01 00:00:00', '2018-01-01 00:00:00');
+
+## mdp: 0000 ###
+INSERT INTO users (firt_name, last_name, email, password, type, created_at, updated_at)
+VALUES ('Rodolfe', 'Charrier', 'director@iut-lehavre.fr', '$2y$10$vA1tdXSCpIzCtMVFDG8h4eY0ha5zUBhiGJBlbmPJtH9JVkLY56v1e', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
