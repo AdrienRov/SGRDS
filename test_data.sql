@@ -1,7 +1,7 @@
-INSERT INTO resources (name) VALUES ('Maths');
-INSERT INTO resources (name) VALUES ('Physique');
-INSERT INTO resources (name) VALUES ('Chimie');
-INSERT INTO resources (name) VALUES ('Informatique');
+INSERT INTO resources (name, created_at, updated_at) VALUES ('Maths', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
+INSERT INTO resources (name, created_at, updated_at) VALUES ('Physique', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
+INSERT INTO resources (name, created_at, updated_at) VALUES ('Chimie', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
+INSERT INTO resources (name, created_at, updated_at) VALUES ('Informatique', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
 
 INSERT INTO semesters (annee, semester, created_at, updated_at) VALUES ('2018', '1', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
 INSERT INTO semesters (annee, semester, created_at, updated_at) VALUES ('2018', '2', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
