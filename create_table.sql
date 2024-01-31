@@ -44,7 +44,7 @@ CREATE TABLE exams (
   duration int NOT NULL,
   class varchar(255) NOT NULL,
   type int NOT NULL,
-  status varchar(255) NOT NULL,
+  status int NOT NULL,
   comment varchar(255) NOT NULL,
   semester_id int REFERENCES semesters(id),
   resource_id int REFERENCES resources(id),

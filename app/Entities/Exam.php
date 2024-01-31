@@ -19,6 +19,6 @@ class Exam extends Entity
         'student_id' => 'int',
         'semester_id' => 'int',
         'resource_id' => 'int',
-        'note' => 'string',
+        'comment' => 'string',
     ];
 }
