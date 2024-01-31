@@ -6,7 +6,7 @@ class StudentModel extends Model
 {
     protected $table         = 'students';
     protected $allowedFields = [
-        'firt_name', 'last_name', 'email', 'promotion'
+        'first_name', 'last_name', 'email', 'promotion'
     ];
     protected $returnType    = \App\Entities\Student::class;
     protected $useTimestamps = true;

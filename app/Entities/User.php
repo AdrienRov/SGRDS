@@ -12,63 +12,26 @@ class User extends Entity
         'last_name' => null,
         'email' => null,
         'password' => null,
-        'type' => null,
-        'created_at' => null,
-        'updated_at' => null,
+        'type' => null
     ];
 
-    public function __construct(array $data = [])
-    {
-        parent::__construct();
+    protected $casts = [
+        'id' => 'int',
+        'first_name' => 'string',
+        'last_name' => 'string',
+        'email' => 'string',
+        'password' => 'string',
+        'type' => 'int'
+    ];
 
-        if (!empty($data) && is_array($data)) {
-            $this->fill($data);
-        }
-    }
-
-    public function getFullName()
+    public function setPassword(string $password)
     {
-        return $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
-    }
-
-    public function getCreatedAt()
-    {
-        return $this->attributes['created_at'];
-    }
-
-    public function getUpdatedAt()
-    {
-        return $this->attributes['updated_at'];
-    }
-
-    public function setFirstName($value)
-    {
-        $this->attributes['first_name'] = $value;
+        $this->attributes['password'] = password_hash($password, PASSWORD_DEFAULT);
         return $this;
     }
 
-    public function setLastName($value)
+    public function checkPassword(string $password)
     {
-        $this->attributes['last_name'] = $value;
-        return $this;
+        return password_verify($password, $this->attributes['password']);
     }
-
-    public function setEmail($value)
-    {
-        $this->attributes['email'] = $value;
-        return $this;
-    }
-
-    public function setPassword($value)
-    {
-        $this->attributes['password'] = $value;
-        return $this;
-    }
-
-    public function setType($value)
-    {
-        $this->attributes['type'] = $value;
-        return $this;
-    }
-
 }

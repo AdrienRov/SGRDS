@@ -6,7 +6,7 @@ class ExamModel extends Model
 {
     protected $table         = 'exams';
     protected $allowedFields = [
-        'date', 'class', 'type', 'status', 'comment', 'semester_id', 'resource_id', 'original_id'
+        'date', 'duration', 'class', 'type', 'status', 'comment', 'semester_id', 'resource_id', 'original_id'
     ];
     protected $returnType    = \App\Entities\Exam::class;
     protected $useTimestamps = true;
