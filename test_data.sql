@@ -19,7 +19,7 @@ INSERT INTO users_resources (user_id, resource_id, created_at, updated_at) VALUE
 INSERT INTO users_resources (user_id, resource_id, created_at, updated_at) VALUES (1, 3, '2018-01-01 00:00:00', '2018-01-01 00:00:00');
 INSERT INTO users_resources (user_id, resource_id, created_at, updated_at) VALUES (1, 4, '2018-01-01 00:00:00', '2018-01-01 00:00:00');
 
-INSERT INTO exams (date, class, type, status, comment, semester_id, resource_id, original_id, created_at, updated_at) VALUES ('2018-01-01 00:00:00', '1', '1', '1', '1', 1, 1, 1, '2018-01-01 00:00:00', '2018-01-01 00:00:00');
+INSERT INTO exams (date, duration, class, type, status, comment, semester_id, resource_id, original_id, created_at, updated_at) VALUES ('2018-01-01 00:00:00', 120, '1', '1', '1', '1', 1, 1, 1, '2018-01-01 00:00:00', '2018-01-01 00:00:00');
 
 INSERT INTO participations (status, exam_id, student_id, created_at, updated_at) VALUES ('1', 1, 1, '2018-01-01 00:00:00', '2018-01-01 00:00:00');
 INSERT INTO participations (status, exam_id, student_id, created_at, updated_at) VALUES ('1', 1, 2, '2018-01-01 00:00:00', '2018-01-01 00:00:00');

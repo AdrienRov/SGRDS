@@ -2,21 +2,13 @@
 
 namespace App\Controllers;
 
-class SemesterController extends BaseController
+class Semester extends BaseController
 {
-    public function Accueil() { 
-        return view('commons/CommonPage', [
-            'content' => view('Accueil')
-        ]);
-    } 
-    public function Absences() { 
-        return view('commons/CommonPage', [
-            'content' => view('Absences')
-        ]);
-    } 
-    public function Rattrapages() { 
-        return view('commons/CommonPage', [
-            'content' => view('Rattrapages')
-        ]);
+    public function FindAll() {
+        // return json with all semesters
+        $semesterModel = new \App\Models\SemesterModel();
+        $semesters = $semesterModel->findAll();
+        return json_encode($semesters);
     }
+
 }

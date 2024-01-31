@@ -41,6 +41,7 @@ CREATE TABLE users_resources (
 CREATE TABLE exams (
   id serial primary key NOT NULL,
   date timestamp NOT NULL,
+  duration int NOT NULL,
   class varchar(255) NOT NULL,
   type int NOT NULL,
   status varchar(255) NOT NULL,
