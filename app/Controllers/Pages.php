@@ -54,8 +54,28 @@ class Pages extends BaseController
             ]);
         }
 
+        $examModel = new \App\Models\ExamModel();
+        $exams = $examModel->findAll();
+
+        $semesterModel = new \App\Models\SemesterModel();
+        $semesters = $semesterModel->findAll();
+
+        $resourceModel = new \App\Models\ResourceModel();
+        $resources = $resourceModel->findAll();
+
+        $userModel = new \App\Models\UserModel();
+        $users = $userModel->findAll();
+
+        $user = $session->get('user');
+
         return view('commons/CommonPage', [
-            'content' => view('Rattrapages')
+            'content' => view('Rattrapages', [
+                'exams' => $exams,
+                'semesters' => $semesters,
+                'resources' => $resources,
+                'users' => $users,
+                'user' => $user
+            ])
         ]);
     }
 

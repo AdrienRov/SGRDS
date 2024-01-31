@@ -4,24 +4,26 @@ namespace App\Controllers;
 
 class AjoutRattrapage extends BaseController
 {
-    public function Index() {
+    public function __construct() {
 
-        $id = $this->request->getGet('id');
-        // get exam of id
+    }
+    public function Index($id) {
+
         $examModel = new \App\Models\ExamModel();
         $exam = $examModel->find($id);
-        // get first of array
-        $exam = $exam[0];
 
         // get resource of exam
         $resourceModel = new \App\Models\ResourceModel();
         $resource = $resourceModel->find($exam->resource_id);
 
+        $usersModel = new \App\Models\UserModel();
+        $users = $usersModel->findAll();
 
         return view('commons/CommonPage', [
             'content' => view('AjoutRattrapage', [
                 'exam' => $exam,
-                'resource' => $resource
+                'resource' => $resource,
+                'users' => $users
             ])
         ]);
     }

@@ -51,6 +51,7 @@ CREATE TABLE exams (
   semester_id int REFERENCES semesters(id),
   resource_id int REFERENCES resources(id),
   original_id int REFERENCES exams(id),
+  user_id int REFERENCES users(id),
   created_at timestamp NOT NULL,
   updated_at timestamp NOT NULL
 );

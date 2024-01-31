@@ -11,7 +11,8 @@ class Exam extends Entity
         'student_id' => null,
         'semester_id' => null,
         'resource_id' => null,
-        'note' => null,
+        'user_id' => null,
+        'comment' => null,
     ];
 
     protected $casts = [
@@ -19,6 +20,7 @@ class Exam extends Entity
         'student_id' => 'int',
         'semester_id' => 'int',
         'resource_id' => 'int',
+        'user_id' => 'int',
         'comment' => 'string',
     ];
 }
