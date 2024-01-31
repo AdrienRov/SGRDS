@@ -7,12 +7,12 @@ INSERT INTO semesters (annee, semester, created_at, updated_at) VALUES ('2018', 
 INSERT INTO semesters (annee, semester, created_at, updated_at) VALUES ('2018', '2', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
 INSERT INTO semesters (annee, semester, created_at, updated_at) VALUES ('2019', '1', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
 
-INSERT INTO users (firt_name, last_name, email, password, type, created_at, updated_at) VALUES ('Jean', 'Dupont', 'jean@dupont.com', '123456', '1', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
-INSERT INTO users (firt_name, last_name, email, password, type, created_at, updated_at) VALUES ('Jake', 'Don', 'jean@don.com', '123456', '0', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
+INSERT INTO users (first_name, last_name, email, password, type, created_at, updated_at) VALUES ('Jean', 'Dupont', 'jean@dupont.com', '123456', '1', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
+INSERT INTO users (first_name, last_name, email, password, type, created_at, updated_at) VALUES ('Jake', 'Don', 'jean@don.com', '123456', '0', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
 
-INSERT INTO students (firt_name, last_name, email, promotion, created_at, updated_at) VALUES ('Student1', 'Student1', 'test@exemple.com', '2018', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
-INSERT INTO students (firt_name, last_name, email, promotion, created_at, updated_at) VALUES ('Student2', 'Student2', 'test@exemple.com', '2018', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
-INSERT INTO students (firt_name, last_name, email, promotion, created_at, updated_at) VALUES ('Student3', 'Student3', 'test@exemple.com', '2018', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
+INSERT INTO students (first_name, last_name, email, promotion, created_at, updated_at) VALUES ('Student1', 'Student1', 'test@exemple.com', '2018', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
+INSERT INTO students (first_name, last_name, email, promotion, created_at, updated_at) VALUES ('Student2', 'Student2', 'test@exemple.com', '2018', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
+INSERT INTO students (first_name, last_name, email, promotion, created_at, updated_at) VALUES ('Student3', 'Student3', 'test@exemple.com', '2018', '2018-01-01 00:00:00', '2018-01-01 00:00:00');
 
 INSERT INTO users_resources (user_id, resource_id, created_at, updated_at) VALUES (1, 1, '2018-01-01 00:00:00', '2018-01-01 00:00:00');
 INSERT INTO users_resources (user_id, resource_id, created_at, updated_at) VALUES (1, 2, '2018-01-01 00:00:00', '2018-01-01 00:00:00');

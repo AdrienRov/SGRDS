@@ -21,7 +21,7 @@ CREATE TABLE semesters (
 
 CREATE TABLE users (
   id serial primary key NOT NULL,
-  firt_name varchar(255) NOT NULL,
+  first_name varchar(255) NOT NULL,
   last_name varchar(255) NOT NULL,
   email varchar(255) NOT NULL,
   password varchar(255) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE exams (
 
 CREATE TABLE students (
   id serial primary key NOT NULL,
-  firt_name varchar(255) NOT NULL,
+  first_name varchar(255) NOT NULL,
   last_name varchar(255) NOT NULL,
   email varchar(255) NOT NULL,
   promotion varchar(255) NOT NULL,
