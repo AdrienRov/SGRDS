@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS users_resources;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS semesters;
 DROP TABLE IF EXISTS resources;
+DROP TABLE IF EXISTS students;
 
 CREATE TABLE resources (
   id serial primary key NOT NULL,
@@ -24,7 +25,7 @@ CREATE TABLE users (
   last_name varchar(255) NOT NULL,
   email varchar(255) NOT NULL,
   password varchar(255) NOT NULL,
-  type varchar(255) NOT NULL,
+  type int NOT NULL,
   created_at timestamp NOT NULL,
   updated_at timestamp NOT NULL
 );
@@ -41,7 +42,7 @@ CREATE TABLE exams (
   id serial primary key NOT NULL,
   date timestamp NOT NULL,
   class varchar(255) NOT NULL,
-  type varchar(255) NOT NULL,
+  type int NOT NULL,
   status varchar(255) NOT NULL,
   comment varchar(255) NOT NULL,
   semester_id int REFERENCES semesters(id),
@@ -51,11 +52,22 @@ CREATE TABLE exams (
   updated_at timestamp NOT NULL
 );
 
+CREATE TABLE students (
+  id serial primary key NOT NULL,
+  firt_name varchar(255) NOT NULL,
+  last_name varchar(255) NOT NULL,
+  email varchar(255) NOT NULL,
+  promotion varchar(255) NOT NULL,
+  created_at timestamp NOT NULL,
+  updated_at timestamp NOT NULL
+);
+
 CREATE TABLE participations (
   id serial primary key NOT NULL,
   status varchar(255) NOT NULL,
   exam_id int REFERENCES exams(id),
-  student_id int REFERENCES users(id),
+  student_id int REFERENCES students(id),
   created_at timestamp NOT NULL,
   updated_at timestamp NOT NULL
 );
+
