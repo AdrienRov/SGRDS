@@ -7,6 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Pages::Connexion');
 $routes->get('/connexion', 'Pages::Connexion');
+$routes->get('/logout', 'Pages::logout');
 $routes->post('/connexion', 'ConnexionController::checkConnexion');
 $routes->get('/accueil', 'Pages::Accueil');
 $routes->get('/absences', 'Pages::Absences');

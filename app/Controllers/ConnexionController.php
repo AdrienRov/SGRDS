@@ -27,10 +27,12 @@ class ConnexionController extends BaseController
         
         $session = \Config\Services::session();
         if ($user) {
-            dd(password_verify($password, $user->password));
-            if (password_verify($password, $user->password)) {
+           
+            if ($user->checkPassword($password)) {
                 $session->set('user', $user);
-                return redirect()->to('/accueil');
+                return view('commons/CommonPage', [
+                    'content' => view('Accueil')
+                ]);
             } else {
                 $session->setFlashdata('error', 'Mot de passe incorrect');
             }
