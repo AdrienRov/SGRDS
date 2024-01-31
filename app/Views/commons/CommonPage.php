@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SGRDS</title>
-	<link rel="stylesheet" href="./assets/css/commons/commonPage.css">
+	<link rel="stylesheet" href="/assets/css/commons/commonPage.css">
 	<!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" /> -->
 	<script src="https://cdn.tailwindcss.com"></script>
