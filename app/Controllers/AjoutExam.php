@@ -15,11 +15,6 @@ class AjoutExam extends BaseController
         $resourceModel = new \App\Models\ResourceModel();
         $resources = $resourceModel->findAll();
 
-        // get exams
-        $examModel = new \App\Models\ExamModel();
-        $exams = $examModel->findAll();
-
-
 
         return view('commons/CommonPage', [
             'content' => view('AjoutExam', [

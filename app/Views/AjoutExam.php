@@ -31,10 +31,6 @@
         <div class="flex flex-col bg-slate-400 px-16 py-8 mt-8">
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
-                    <select name="origin_id" id="origin_id" class="part2 px-32 py-1">
-                        <option value="0">Aucun</option>
-                    </select>
-
                     <input type="text" name="comment" id="comment" placeholder="Commantaire" class="part2 px-32 py-1" />
                     <input type="date" name="date" id="date" placeholder="Date" value="<?= date('Y-m-d') ?>" class="part2 px-32 py-1" />
                     <input type="number" name="duration" id="time" placeholder="Minutes" class="part2 px-32 py-1" />
@@ -66,29 +62,6 @@
 <script>
     const exams = <?= json_encode($exams) ?>;
 
-    const filterExams = () => {
-        const semester_id = $('#semester_id').val();
-        const resource_id = $('#resource_id').val();
-        const filteredExams = exams.filter(exam => exam.semester_id == semester_id && exam.resource_id == resource_id);
-        $('#origin_id').html('<option value="0">Aucun</option>');
-        filteredExams.forEach(exam => {
-            $('#origin_id').append(`<option value="${exam.id}">${exam.comment}</option>`);
-        });
-    }
-
-    // filtrer les exams au chargement de la page
-    $('#semester_id, #resource_id').on('change', filterExams);
-    filterExams();
-
-    // quand on selectionne un original, mettre commentaire a "Ratrapage [MATIERE] [DATE]"
-    $('#origin_id').on('change', () => {
-        const origin_id = $('#origin_id').val();
-        const exam = exams.find(exam => exam.id == origin_id);
-        $('#comment').val(`Ratrapage ${exam.comment} ${exam.date}`);
-        $('#type').val(exam.type);
-        $('#time').val(exam.duration);
-        $('#class').val(exam.class);
-    });
 
     $('.part2').hide();
     $('#semester_id, #resource_id').on('change', () => {
