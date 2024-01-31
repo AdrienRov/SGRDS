@@ -16,11 +16,14 @@ class AjoutRattrapage extends BaseController
         $resourceModel = new \App\Models\ResourceModel();
         $resource = $resourceModel->find($exam->resource_id);
 
+        $usersModel = new \App\Models\UserModel();
+        $users = $usersModel->findAll();
 
         return view('commons/CommonPage', [
             'content' => view('AjoutRattrapage', [
                 'exam' => $exam,
-                'resource' => $resource
+                'resource' => $resource,
+                'users' => $users
             ])
         ]);
     }

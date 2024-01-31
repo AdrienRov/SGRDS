@@ -28,6 +28,12 @@
 							<option value="4">Passé</option>
 						</select>
 
+                        <select name="user_id" id="user_id" class="px-32 py-1">
+                            <?php foreach ($users as $user) : ?>
+                                <option value="<?= $user->id ?>"><?= $user->first_name ?> <?= $user->last_name ?></option>
+                            <?php endforeach ?>
+                        </select>
+
 						<textarea type="text" name="comment" id="comment" placeholder="Commantaire" class="px-32 py-1">Ratrappage de l'examen du <?= $exam->date ?> de <?= $resource->name ?></textarea>
 
 						<input type="submit" value="Ajouter" class="px-32 py-1 bg-orange-400" />
