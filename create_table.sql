@@ -8,7 +8,9 @@ DROP TABLE IF EXISTS students;
 
 CREATE TABLE resources (
   id serial primary key NOT NULL,
-  name varchar(255) NOT NULL
+  name varchar(255) NOT NULL,
+  created_at timestamp NOT NULL,
+  updated_at timestamp NOT NULL
 );
 
 CREATE TABLE semesters (
