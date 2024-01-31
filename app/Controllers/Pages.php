@@ -44,7 +44,6 @@ class Pages extends BaseController
     public function Rattrapages()
     {
         $session = \Config\Services::session();
-        $session->destroy();
         if (!$session->has('user')) {
             return view('commons/CommonPage', [
                 'content' => view('Connexion')
