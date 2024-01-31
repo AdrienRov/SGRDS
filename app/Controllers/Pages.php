@@ -4,6 +4,12 @@ namespace App\Controllers;
 
 class Pages extends BaseController
 {
+    public function Connexion()
+    {
+        return view('commons/CommonPage', [
+            'content' => view('Connexion')
+        ]);
+    }
     public function Accueil() { 
         return view('commons/CommonPage', [
             'content' => view('Accueil')
