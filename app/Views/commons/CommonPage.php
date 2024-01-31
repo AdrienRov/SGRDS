@@ -1,6 +1,6 @@
 <?php
 	$userIsLoggedIn = isset($_SESSION['user']);
-    $currentPage = $_SERVER['REQUEST_URI'];	
+    $currentPage = $_SERVER['REQUEST_URI'];
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +31,13 @@
                 ?>
                 <nav class="flex items-center" id="navbar">
                     <a href="#" data-page="absences" class="ml-4 page-link">Absences</a>
+					<?php
+						if (isset($_SESSION['user']->type) == 1) {
+							?>
+								<a href="#" data-page="AjoutExam" class="ml-4 page-link">Ajout d'examen</a>
+							<?php
+						}
+					?>
                     <a href="#" data-page="rattrapages" class="ml-4 page-link">Rattrapages</a>
                     <a href="#" data-page="logout" id="logoutBtn" class="ml-4 page-link">
 					<svg class="w-1/2 h-[50px] fill-[white]" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
