@@ -67,10 +67,10 @@ function getStudentById($students, $id)
                             ?>
                             <span>
                                 <label for="student_<?= $participation->student_id ?>"><?= $studient->first_name ?> <?= $studient->last_name ?></label>
-                                <select name="participations[]" id="participation_<?= $participation->student_id ?>" class="px-32 py-1">
-                                    <option value="<?= $participation->student_id ?>-0" <?= $participation->status == 0 ? 'selected' : '' ?>>Absent</option>
-                                    <option value="<?= $participation->student_id ?>-1" <?= $participation->status == 1 ? 'selected' : '' ?>>Présent</option>
-                                    <option value="<?= $participation->student_id ?>-2" <?= $participation->status == 2 ? 'selected' : '' ?>>Justifié</option>
+                                <select name="participations[]" id="participation_<?= $participation->id ?>" class="px-32 py-1">
+                                    <option value="<?= $participation->id ?>-0" <?= $participation->status == 0 ? 'selected' : '' ?>>Absent</option>
+                                    <option value="<?= $participation->id ?>-1" <?= $participation->status == 1 ? 'selected' : '' ?>>Présent</option>
+                                    <option value="<?= $participation->id ?>-2" <?= $participation->status == 2 ? 'selected' : '' ?>>Justifié</option>
                                 </select>
                             </span>
                         <?php } ?>
