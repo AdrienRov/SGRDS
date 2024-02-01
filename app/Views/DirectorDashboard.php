@@ -11,12 +11,23 @@ function getResourceById($resources, $id)
 
 ?>
 
-    <main>
+<main class="flex-1 px-44">
     <h1 class="text-3xl font-bold mx-3 my-3">Dashboard du directeur</h1>
 
+    <!-- Tabs -->
     <div class="flex justify-center">
-        <div class="flex flex-col bg-zinc-300 rounded-lg px-16 mr-3 py-8 mt-8">
-            <h1 class="text-2xl">Semestres</h1>
+        <div class="tabs space-x-4">
+            <button class="tablinks active inline-block p-4 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500" onclick="openTab(event, 'semesters')">Semestres</button>
+            <button class="tablinks inline-block p-4 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500" onclick="openTab(event, 'resources')">Resources</button>
+            <button class="tablinks inline-block p-4 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500" onclick="openTab(event, 'users')">Utilisateurs</button>
+            <button class="tablinks inline-block p-4 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500" onclick="openTab(event, 'students')">Etudiants</button>
+        </div>
+    </div>
+
+    <!-- Content for each tab -->
+    <div class="flex flex-col bg-zinc-300 rounded-lg px-16 mr-3 py-8 mt-8 flex items-center">
+    <div id="semesters" class="tabcontent" style="display: block;">
+    <h1 class="text-2xl">Semestres</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
                     <table class="table-auto bg-white rounded-md">
@@ -51,9 +62,10 @@ function getResourceById($resources, $id)
                     </form>
                 </div>
             </div>
-        </div>
-        <div class="flex flex-col bg-zinc-300 rounded-lg px-16 py-8 mt-8">
-            <h1 class="text-2xl">Resources</h1>
+    </div>
+
+    <div id="resources" class="tabcontent">
+    <h1 class="text-2xl">Resources</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
 
@@ -83,12 +95,10 @@ function getResourceById($resources, $id)
                     </form>
                 </div>
             </div>
-        </div>
     </div>
 
-    <div class="flex justify-center">
-        <div class="flex flex-col bg-zinc-300 rounded-lg px-16 py-8 mt-8">
-            <h1 class="text-2xl">Utilisateurs</h1>
+    <div id="users" class="tabcontent">
+    <h1 class="text-2xl">Utilisateurs</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
 
@@ -180,11 +190,10 @@ function getResourceById($resources, $id)
                     </form>
                 </div>
             </div>
-        </div>
     </div>
-    <div class="flex justify-center mb-10">
-        <div class="flex flex-col bg-zinc-300 rounded-lg px-16 py-8 mt-8">
-            <h1 class="text-2xl">Etudiants</h1>
+
+    <div id="students" class="tabcontent">
+    <h1 class="text-2xl">Etudiants</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
 
@@ -230,8 +239,36 @@ function getResourceById($resources, $id)
 
                 </div>
             </div>
+        </div>
     </div>
 
+    <script>
+        //when page loads, show the first tab content and hide the rest
+        document.getElementById("semesters").style.display = "block";
+        document.getElementById("semesters").className += " text-orange-800";
+        document.getElementById("resources").style.display = "none";
+        document.getElementById("users").style.display = "none";
+        document.getElementById("students").style.display = "none";
 
+        
+        
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                tablinks[i].className = tablinks[i].className.replace(" text-orange-800", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+            evt.currentTarget.className += " text-orange-800";
+        }
+    </script>
 </main>
+
+
 
