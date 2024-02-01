@@ -27,9 +27,8 @@
 			<div class="flex flex-col bg-zinc-300 rounded-lg px-16 py-8 mt-8">
 				<div class="flex flex-row">
 					<div class="flex flex-col gap-1">
-						<input type="text" name="comment" id="comment" placeholder="Commentaire" class="part2 px-32 py-1" />
 						<input type="datetime-local" name="date" id="date" placeholder="Date" value="<?= date('Y-m-d\TH:i:s') ?>" class="part2 px-32 py-1" required />
-						<input type="number" name="duration" id="time" placeholder="Minutes" class="part2 px-32 py-1" required />
+						<input type="number" name="duration" id="time" placeholder="Durée (en minutes)" class="part2 px-32 py-1" required />
 						<select name="type" id="type" class="part2 px-32 py-1">
 							<option value="0">Machine</option>
 							<option value="1">Papier</option>
@@ -47,14 +46,26 @@
                         <!-- list students with checkbox to select, send as array of id in post -->
 						<div class="border border-gray-400 rounded-lg p-4 flex flex-col gap-1">
                             <h1 class="text-xl font-bold">Etudiants</h1>
+							<select id="promotion" class="px-32 py-1">
+								<option value="0">Toutes les promotions</option>
+								<?php
+								$promotions = array_unique(array_map(function ($student) {
+									return $student->promotion;
+								}, $students));
+								?>
+								<?php foreach ($promotions as $promotion) : ?>
+									<option value="<?= $promotion ?>"><?= $promotion ?></option>
+								<?php endforeach ?>
+							</select>
 							<?php foreach ($students as $student) : ?>
-							<span>
+							<span x-data="<?= $student->promotion ?>" class="student">
 								<input type="checkbox" name="students[]" id="student_<?= $student->id ?>" value="<?= $student->id ?>" />
 								<label for="student_<?= $student->id ?>"><?= $student->first_name ?> <?= $student->last_name ?></label>
 							</span>
 							<?php endforeach ?>
 						</div>
-
+						
+						<textarea type="text" name="comment" id="comment" placeholder="Commantaire" class="px-32 py-1"></textarea>
 
 						<input type="submit" value="Ajouter" class="part2 px-32 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
 					</div>
@@ -64,6 +75,19 @@
 	</form>
 
 	<script>
+
+		
+		$('#promotion').on('change', () => {
+			let promotion = $('#promotion').val();
+			let students = document.querySelectorAll('.student');
+			students.forEach(student => {
+				if (student.getAttribute('x-data') == promotion || promotion == 0) {
+					student.style.display = 'block';
+				} else {
+					student.style.display = 'none';
+				}
+			});
+		})
 
 		$('.part2').hide();
 		$('#semester_id, #resource_id').on('change', () => {

@@ -26,13 +26,14 @@ function getStudentById($students, $id)
 						<input type="hidden" name="resource_id" id="resource_id" value="<?= $exam->resource_id ?>" />
 
 						<input type="datetime-local" name="date" id="date" placeholder="Date" value="<?= date('Y-m-d\TH:i:s', strtotime($exam->date)) ?>" class="px-32 py-1" />
-						<input type="number" name="duration" id="time" placeholder="Minutes" class="px-32 py-1" value="<?= $exam->duration ?>" />
+						<input type="number" name="duration" id="time" placeholder="Durée (en minutes)" class="px-32 py-1" value="<?= $exam->duration ?>" />
 						<select name="type" id="type" class="px-32 py-1">
 							<option value="0" <?= $exam->type == 0 ? 'selected' : '' ?>>Machine</option>
 							<option value="1" <?= $exam->type == 1 ? 'selected' : '' ?>>Papier</option>
 						</select>
 
 						<input type="text" name="class" id="class" placeholder="Class" class="px-32 py-1" value="<?= $exam->class ?>" />
+
 						<select name="status" id="status" class="px-32 py-1">
 							<option value="0">Programmé</option>
 							<option value="1">En cours</option>
@@ -43,13 +44,9 @@ function getStudentById($students, $id)
 
                         <select name="user_id" id="user_id" class="px-32 py-1">
                             <?php foreach ($users as $user) : ?>
-                                <option value="<?= $user->id ?>"><?= $user->first_name ?> <?= $user->last_name ?></option>
+                                <option value="<?= $user->id ?>" <?= $user->id == $exam->user_id ? 'selected' : '' ?>><?= $user->first_name ?> <?= $user->last_name ?></option>
                             <?php endforeach ?>
                         </select>
-
-						<textarea type="text" name="comment" id="comment" placeholder="Commantaire" class="px-32 py-1">Ratrappage de l'examen du <?= $exam->date ?> de <?= $resource->name ?></textarea>
-
-                        <!-- make group box (border) -->
                         
                         <div class="border border-gray-400 rounded-lg p-4 flex flex-col gap-1">
                             <h1 class="text-xl font-bold">Etudiants</h1>
@@ -84,6 +81,9 @@ function getStudentById($students, $id)
 
                         </div>
                         
+                        <textarea type="text" name="comment" id="comment" placeholder="Commantaire" class="px-32 py-1">Ratrappage de l'examen du <?= $exam->date ?> de <?= $resource->name ?></textarea>
+
+
 						<input type="submit" value="Ajouter" class="px-32 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
 					</div>
 				</div>

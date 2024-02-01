@@ -52,6 +52,13 @@ function getStudentById($students, $id)
                             <option value="1" <?= $exam->type == 1 ? 'selected' : '' ?>>Papier</option>
                         </select>
 
+                        
+                        <select name="user_id" id="user_id" class="px-32 py-1">
+                            <?php foreach ($users as $user) : ?>
+                                <option value="<?= $user->id ?>" <?= $user->id == $exam->user_id ? 'selected' : '' ?>><?= $user->first_name ?> <?= $user->last_name ?></option>
+                            <?php endforeach ?>
+                        </select>
+
                         <input type="text" name="class" id="class" placeholder="Class" class="part2 px-32 py-1" value="<?= $exam->class ?>" />
                         <select name="status" id="status" class="part2 px-32 py-1">
                             <option value="0" <?= $exam->status == 0 ? 'selected' : '' ?>>Programmé</option>

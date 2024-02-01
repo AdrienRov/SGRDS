@@ -103,6 +103,9 @@ class AjoutExam extends BaseController
         $participationModel = new \App\Models\ParticipationModel();
         $participations = $participationModel->where('exam_id', $id)->findAll();
 
+        $userModel = new \App\Models\UserModel();
+        $users = $userModel->findAll();
+
 		$breadcrumbs = getBreadcrumbs(['Accueil', 'Rattrapages', 'Modifier'], ['accueil', 'rattrapages', 'AjoutExam/edit/'.$id]);
 
         return view('commons/CommonPage', [
@@ -112,7 +115,8 @@ class AjoutExam extends BaseController
                 'exam' => $exam,
                 'students' => $students,
                 'participations' => $participations,
-				'breadcrumbs' => $breadcrumbs
+				'breadcrumbs' => $breadcrumbs,
+                'users' => $users
             ])
         ]);
     }
