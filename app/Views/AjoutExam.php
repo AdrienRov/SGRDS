@@ -57,6 +57,10 @@
 									<option value="<?= $promotion ?>"><?= $promotion ?></option>
 								<?php endforeach ?>
 							</select>
+							<span>
+								<input type="checkbox" id="select_all_students" />
+								<label for="select_all_students">Tous les étudiants</label>
+							</span>
 							<?php foreach ($students as $student) : ?>
 							<span x-data="<?= $student->promotion ?>" class="student">
 								<input type="checkbox" name="students[]" id="student_<?= $student->id ?>" value="<?= $student->id ?>" />
@@ -76,17 +80,43 @@
 
 	<script>
 
+
+		$('#select_all_students').on('change', () => {
+			let checked = $('#select_all_students').prop('checked');
+			let promotion = $('#promotion').val();
+			let students = document.querySelectorAll('.student');
+			students.forEach(student => {
+				if (student.getAttribute('x-data') != promotion && promotion != 0)
+					return;
+				if (checked) {
+					student.querySelector('input').checked = true;
+				} else {
+					student.querySelector('input').checked = false;
+				}
+			});
+		});
 		
 		$('#promotion').on('change', () => {
 			let promotion = $('#promotion').val();
 			let students = document.querySelectorAll('.student');
+			let all_checked = true;
 			students.forEach(student => {
 				if (student.getAttribute('x-data') == promotion || promotion == 0) {
 					student.style.display = 'block';
+					if (!student.querySelector('input').checked) {
+						all_checked = false;
+					}
 				} else {
 					student.style.display = 'none';
 				}
 			});
+
+			if (all_checked) {
+				$('#select_all_students').prop('checked', true);
+			} else {
+				$('#select_all_students').prop('checked', false);
+			}
+			
 		})
 
 		$('.part2').hide();

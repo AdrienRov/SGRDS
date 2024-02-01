@@ -29,7 +29,7 @@ function getStudentById($students, $id)
                             <?php endforeach; ?>
                         </select>
 
-                        <select name="resource_id" id="resource_id" class="px-32 py-1" disabled>
+                        <select name="resource_id" id="resource_id" class="px-32 py-1">
                             <option value="0">Aucun</option>
                             <?php foreach ($resources as $resource) : ?>
                                 <option value="<?= $resource->id ?>" <?= $resource->id == $exam->resource_id ? 'selected' : '' ?>
