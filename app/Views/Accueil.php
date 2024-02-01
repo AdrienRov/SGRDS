@@ -29,9 +29,11 @@ function getUserById($users, $id)
 <main class="flex-1">
  <div class="mx-5">
     <?php if ($user->type == 1) : ?>
-        <div class="border border-gray-400 rounded-lg p-4 flex flex-col gap-1">
+        <div class="border border-gray-400 rounded-lg p-4 flex flex-col gap-3">
             <h1 class="text-2xl font-bold">Espace Directeur</h1>
-            <a href="/DirectorDashboard" class="bg-orange hover:bg-orange-light text-white font-bold py-2 px-4 rounded">Dashboard</a>
+            <div>
+                <a href="/DirectorDashboard" class="bg-orange hover:bg-orange-light text-white font-bold py-2 px-4 rounded">Dashboard</a>
+            </div>
         </div>
 
     <?php endif ?>
