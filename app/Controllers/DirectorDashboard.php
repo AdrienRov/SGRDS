@@ -93,12 +93,19 @@ class DirectorDashboard extends BaseController
     }
 
     public function supprimerResource($id) {
-
         $resourceModel = new \App\Models\ResourceModel();
+        // Si la ressource est utilisée par un utilisateur, on ne peut pas la supprimer
+        $userResourceModel = new \App\Models\UserResourceModel();
+        $userResource = $userResourceModel->where('resource_id', $id)->first();
+        if ($userResource) {
+            return redirect()->to('/DirectorDashboard')->with('error', 'La ressource est utilisée par un utilisateur.');
+        }
+    
         $resourceModel->delete($id);
-
-        return redirect()->to('/DirectorDashboard');
+    
+        return redirect()->to('/DirectorDashboard')->with('success', 'Ressource supprimée avec succès.');
     }
+    
 
     public function AjoutUserResource() {
         $request = \Config\Services::request();
