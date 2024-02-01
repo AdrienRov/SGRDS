@@ -32,7 +32,7 @@
                 <nav class="flex items-center" id="navbar">
                     <a href="#" data-page="absences" class="ml-4 page-link">Absences</a>
 					<?php
-						if (isset($_SESSION['user']->type) == 1) {
+						if (intval($_SESSION['user']->type) === 1) {
 							?>
 								<a href="#" data-page="AjoutExam" class="ml-4 page-link">Ajout d'examen</a>
 							<?php
