@@ -12,13 +12,13 @@ function getStudentById($students, $id)
 ?>
 
 
-<main>
-	<h1 class="h1">Ajout d'un ratrappage</h1>
+<main class="flex-1">
+    <h1 class="text-3xl font-bold mx-3 my-3">Ajouter un rattrapage</h1>
 	
 	<form action="<?= site_url('AjoutRattrapage/ajout') ?>" method="post" enctype="multipart/form-data">
 		<div class="flex justify-center">
-			<h1>Rattrapage de <?= $resource->name ?></h1>
-			<div class="flex flex-col bg-slate-400 px-16 py-8 mt-8">
+			<h1 class="text-xl font-bold">Rattrapage de <?= $resource->name ?></h1>
+			<div class="flex flex-col bg-zinc-300 rounded-lg px-16 py-8 mt-8">
 				<div class="flex flex-row">
 					<div class="flex flex-col gap-1">
 
@@ -52,20 +52,29 @@ function getStudentById($students, $id)
 
                         <!-- list all students participating to the exam with a select to choose who was present, absent or justified -->
                         <?php foreach ($participations as $participation) {
-                            $studient = getStudentById($students, $participation->student_id);
+                            if ($participation->status == 1)
+                                continue;
+                            $student = getStudentById($students, $participation->student_id);
                             ?>
-                        <label for="participation_<?= $participation->id ?>"><?= $studient->first_name ?> <?= $studient->last_name ?></label>
-                        <select name="participations[]" id="participation_<?= $participation->student_id ?>" class="px-32 py-1">
-                            <option value="<?= $participation->student_id ?>-0">Absent</option>
-                            <option value="<?= $participation->student_id ?>-1">Présent</option>
-                            <option value="<?= $participation->student_id ?>-2">Justifié</option>
-                        </select>
+                                <span>
+                                    <label for="participation_<?= $participation->id ?>">
+                                        <?= $student->first_name ?> <?= $student->last_name ?>
+                                        <?php if ($participation->status == 0) : ?>
+                                            <span class="text-gray-400">Absent</span>
+                                        <?php elseif ($participation->status == 1) : ?>
+                                            <span class="text-green-400">Présent</span>
+                                        <?php elseif ($participation->status == 2) : ?>
+                                            <span class="text-yellow-400">Justifié</span>
+                                        <?php endif ?>
+                                    </label>
+                                    <input type="checkbox" name="participations[]" id="participation_<?= $student->id ?>" value="<?= $student->id ?>" <?= $participation->status == 2 ? 'checked' : '' ?> />
+                                </span>
                         <?php } ?>
 
 
 
 
-						<input type="submit" value="Ajouter" class="px-32 py-1 bg-orange-400" />
+						<input type="submit" value="Ajouter" class="px-32 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
 					</div>
 				</div>
 			</div>

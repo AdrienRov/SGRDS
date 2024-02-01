@@ -9,12 +9,6 @@ function loadPage(page) {
     });
 }
 
-$('.page-link').on('click', function (e) {
-    e.preventDefault();
-    var page = $(this).data('page');
-    loadPage(page);
-});
-
 $('.page-link[data-page="logout"]').on('click', function (e) {
     e.preventDefault();
    

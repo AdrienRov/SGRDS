@@ -3,21 +3,24 @@
 // Check PHP version.
 $minPhpVersion = '7.4'; // If you update this, don't forget to update `spark`.
 if (version_compare(PHP_VERSION, $minPhpVersion, '<')) {
-    $message = sprintf(
-        'Your PHP version must be %s or higher to run CodeIgniter. Current version: %s',
-        $minPhpVersion,
-        PHP_VERSION
-    );
+	$message = sprintf(
+		'Your PHP version must be %s or higher to run CodeIgniter. Current version: %s',
+		$minPhpVersion,
+		PHP_VERSION
+	);
 
-    exit($message);
+	exit($message);
 }
 
 // Path to the front controller (this file)
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 
+// Path to the system directory
+define('BASEPATH', FCPATH . '../system/');
+
 // Ensure the current directory is pointing to the front controller's directory
 if (getcwd() . DIRECTORY_SEPARATOR !== FCPATH) {
-    chdir(FCPATH);
+	chdir(FCPATH);
 }
 
 /*
@@ -45,7 +48,7 @@ require_once SYSTEMPATH . 'Config/DotEnv.php';
 
 // Define ENVIRONMENT
 if (! defined('ENVIRONMENT')) {
-    define('ENVIRONMENT', env('CI_ENVIRONMENT', 'production'));
+	define('ENVIRONMENT', env('CI_ENVIRONMENT', 'production'));
 }
 
 // Load Config Cache

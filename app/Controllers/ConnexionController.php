@@ -26,24 +26,106 @@ class ConnexionController extends BaseController
         $user = $userModel->where('email', $email)->first();
         
         $session = \Config\Services::session();
+        $error = null;
         if ($user) {
            
             if ($user->checkPassword($password)) {
                 $session->set('user', $user);
-                return view('commons/CommonPage', [
-                    'content' => view('Accueil')
+                return json_encode([
+                    'success' => true
                 ]);
             } else {
-                $session->setFlashdata('error', 'Mot de passe incorrect');
+                $error = 'Mot de passe incorrect';
             }
         } else {
-            $session->setFlashdata('error', 'Email incorrect');
+            $error = 'Email incorrect';
         }
-        
-        $data['error'] = $session->getFlashdata('error');
+
+        // return error in json
+        return json_encode([
+            'success' => false,
+            'error' => $error
+        ]);
+    }
+
+    public function ForgotPassword()
+    {
+        $data = $this->request->getPost();
+        $userModel = new \App\Models\UserModel();
+        $user = $userModel->where('email', $data['email'])->first();
+
+        if (!$user) {
+            return json_encode([
+                'success' => false,
+                'error' => 'Email incorrect'
+            ]);
+        }
+
+        // random token
+        $token = bin2hex(random_bytes(32));
+        // set in session
+        $session = \Config\Services::session();
+        $session->set('reset_token', $token);
+        $session->set('reset_user_id', $user->id);
+
+        // generate url to /ResetPassword/$token
+        $url = base_url() . '/resetPassword/' . $token;
+
+        // send email to email address with new password
+        $email = \Config\Services::email();
+        $email->setFrom('noreply@test.fr');
+        $email->setTo($data['email']);
+        $email->setSubject('Mot de passe oublié');
+        $email->setMailType('html');
+        $email->setMessage(view('emails/EmailResetPassword', [
+            'url' => $url
+        ]));
+        $email->send();
+
+        return json_encode([
+            'success' => true
+        ]);
+
+    }
+
+    public function ResetPassword($token)
+    {
+        $session = \Config\Services::session();
+        if (!$session->has('reset_token') || $session->get('reset_token') != $token) {
+            return view('commons/CommonPage', [
+                'content' => view('Connexion')
+            ]);
+        }
 
         return view('commons/CommonPage', [
-            'content' => view('Connexion', $data) 
+            'content' => view('ResetPassword')
         ]);
+    }
+    public function ResetPasswordPost($token)
+    {
+        $session = \Config\Services::session();
+        if (!$session->has('reset_token') || $session->get('reset_token') != $token) {
+            return view('commons/CommonPage', [
+                'content' => view('Connexion')
+            ]);
+        }
+
+        $data = $this->request->getPost();
+        $userModel = new \App\Models\UserModel();
+        $user = $userModel->find($session->get('reset_user_id'));
+        $user->password = $data['password'];
+        $userModel->update($user->id, $user);
+
+        $session->remove('reset_token');
+        $session->remove('reset_user_id');
+
+        $email = \Config\Services::email();
+        $email->setFrom('noreply@test.fr');
+        $email->setTo($user->email);
+        $email->setSubject('Mot de passe changer avec success');
+        $email->setMessage('Votre mot de passe a été changer avec success');
+        $email->send();
+
+        return redirect()->to('/connexion');
     }
 }
