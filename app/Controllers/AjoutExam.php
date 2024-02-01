@@ -5,6 +5,7 @@ namespace App\Controllers;
 class AjoutExam extends BaseController
 {
     public function Index() {
+        $session = \Config\Services::session();
 
         $semesterModel = new \App\Models\SemesterModel();
         $semesters = $semesterModel->findAll();
@@ -21,6 +22,11 @@ class AjoutExam extends BaseController
         $userModel = new \App\Models\UserModel();
         $users = $userModel->findAll();
 
+        if (!$session->has('user')) {
+            return view('commons/CommonPage', [
+                'content' => view('Connexion')
+            ]);
+        }  
 
         return view('commons/CommonPage', [
             'content' => view('AjoutExam', [

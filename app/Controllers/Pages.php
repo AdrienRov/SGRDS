@@ -11,7 +11,6 @@ class Pages extends BaseController
         ]);
     }
 
-
     public function Accueil()
     {
         $session = \Config\Services::session();
@@ -105,16 +104,6 @@ class Pages extends BaseController
                 'user' => $user
             ])
         ]);
-    }
-
-    public function isConnected()
-    {
-        $session = \Config\Services::session();
-
-        if ($session->has('user')) {
-            return true;
-        }
-        return false;
     }
 
     public function logout()
