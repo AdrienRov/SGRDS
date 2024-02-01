@@ -4,98 +4,114 @@ namespace App\Controllers;
 
 class Pages extends BaseController
 {
-    public function Connexion()
+    public function __construct()
     {
-        return view('commons/CommonPage', [
-            'content' => view('Connexion')
-        ]);
+        // Charger le helper dans le constructeur
+        helper('breadcrumbs');
     }
 
+	public function Connexion()
+	{
+		return view('commons/CommonPage', [
+			'content' => view('Connexion')
+		]);
+	}
 
-    public function Accueil()
-    {
-        $session = \Config\Services::session();
+	public function Accueil()
+	{
+		$session = \Config\Services::session();
 
-        if (!$session->has('user')) {
-            return view('commons/CommonPage', [
-                'content' => view('Connexion')
-            ]);
-        }
+		if (!$session->has('user')) {
+			return view('commons/CommonPage', [
+				'content' => view('Connexion')
+			]);
+		}
 
-        if ($session->get('user')->type == 1) {
-            return redirect()->to('/DirectorDashboard');
-        }
-        return view('commons/CommonPage', [
-            'content' => view('Accueil')
-        ]);
-    }
+		if ($session->get('user')->type == 1) {
+			return redirect()->to('/DirectorDashboard');
+		}
 
-    public function Absences()
-    {
-        $session = \Config\Services::session();
+		$breadcrumbs = getBreadcrumbs(['Accueil'], ['Accueil']);
 
-        if (!$session->has('user')) {
-            return view('commons/CommonPage', [
-                'content' => view('Connexion')
-            ]);
-        }
+		return view('commons/CommonPage', [
+			'content' => view('Accueil', [
+				'breadcrumbs' => $breadcrumbs
+			])
+		]);
+	}
 
-        return view('commons/CommonPage', [
-            'content' => view('Absences')
-        ]);
-    }
+	public function Absences()
+	{
+		$session = \Config\Services::session();
 
-    public function Rattrapages()
-    {
-        $session = \Config\Services::session();
-        if (!$session->has('user')) {
-            return view('commons/CommonPage', [
-                'content' => view('Connexion')
-            ]);
-        }
+		if (!$session->has('user')) {
+			return view('commons/CommonPage', [
+				'content' => view('Connexion')
+			]);
+		}
 
-        $examModel = new \App\Models\ExamModel();
-        $exams = $examModel->findAll();
+		$breadcrumbs = getBreadcrumbs(['Accueil', 'Absences'], ['accueil', 'absences']);
 
-        $semesterModel = new \App\Models\SemesterModel();
-        $semesters = $semesterModel->findAll();
+		return view('commons/CommonPage', [
+			'content' => view('Absences', [
+				'breadcrumbs' => $breadcrumbs
+			])
+		]);
+	}
 
-        $resourceModel = new \App\Models\ResourceModel();
-        $resources = $resourceModel->findAll();
+	public function Rattrapages()
+	{
+		$session = \Config\Services::session();
+		if (!$session->has('user')) {
+			return view('commons/CommonPage', [
+				'content' => view('Connexion')
+			]);
+		}
 
-        $userModel = new \App\Models\UserModel();
-        $users = $userModel->findAll();
+		$examModel = new \App\Models\ExamModel();
+		$exams = $examModel->findAll();
 
-        $user = $session->get('user');
+		$semesterModel = new \App\Models\SemesterModel();
+		$semesters = $semesterModel->findAll();
 
-        return view('commons/CommonPage', [
-            'content' => view('Rattrapages', [
-                'exams' => $exams,
-                'semesters' => $semesters,
-                'resources' => $resources,
-                'users' => $users,
-                'user' => $user
-            ])
-        ]);
-    }
+		$resourceModel = new \App\Models\ResourceModel();
+		$resources = $resourceModel->findAll();
 
-    public function isConnected()
-    {
-        $session = \Config\Services::session();
+		$userModel = new \App\Models\UserModel();
+		$users = $userModel->findAll();
 
-        if ($session->has('user')) {
-            return true;
-        }
-        return false;
-    }
+		$user = $session->get('user');
 
-    public function logout()
-    {
-        $session = \Config\Services::session();
-        $session->destroy();
-        return view('commons/CommonPage', [
-            'content' => view('Connexion')
-        ]);
-    }
+		$breadcrumbs = getBreadcrumbs(['Accueil', 'Rattrapages'], ['accueil', 'rattrapages']);
+
+		return view('commons/CommonPage', [
+			'content' => view('Rattrapages', [
+				'exams' => $exams,
+				'semesters' => $semesters,
+				'resources' => $resources,
+				'users' => $users,
+				'user' => $user,
+				'breadcrumbs' => $breadcrumbs
+			])
+		]);
+	}
+
+	public function isConnected()
+	{
+		$session = \Config\Services::session();
+
+		if ($session->has('user')) {
+			return true;
+		}
+		return false;
+	}
+
+	public function logout()
+	{
+		$session = \Config\Services::session();
+		$session->destroy();
+		return view('commons/CommonPage', [
+			'content' => view('Connexion')
+		]);
+	}
 }
-

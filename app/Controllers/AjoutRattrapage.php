@@ -25,13 +25,21 @@ class AjoutRattrapage extends BaseController
         $participationModel = new \App\Models\ParticipationModel();
         $participations = $participationModel->where('exam_id', $id)->findAll();
 
+		$breadcrumbs = array(
+			array(
+				'title' => 'Rattrapages',
+				'link' => 'AjoutRattrapage'
+			)
+		);
+
         return view('commons/CommonPage', [
             'content' => view('AjoutRattrapage', [
                 'exam' => $exam,
                 'resource' => $resource,
                 'users' => $users,
                 'students' => $students,
-                'participations' => $participations
+                'participations' => $participations,
+				'breadcrumbs' => $breadcrumbs
             ])
         ]);
     }

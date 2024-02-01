@@ -15,3 +15,17 @@ if (!function_exists('generate_breadcrumbs')) {
         return $breadcrumbs;
     }
 }
+
+if (!function_exists('getBreadcrumbs')) {
+	function getBreadcrumbs($titles, $links) {
+		$breadcrumbs = [];
+		for ($i = 0; $i < count($titles); $i++) {
+			$breadcrumb = [
+				'title' => $titles[$i],
+				'link' => $links[$i]
+			];
+			$breadcrumbs[] = $breadcrumb;
+		}
+		return $breadcrumbs;
+	}
+}

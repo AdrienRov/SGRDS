@@ -49,8 +49,14 @@ $currentPage = $_SERVER['REQUEST_URI'];
 		?>
 	</header>
 
-	<div id="breadcrumbs">
-		<?= $breadcrumbs; ?>
+	<div class="text-sm breadcrumbs">
+		<?php
+		helper('breadcrumbs');
+		
+		if (!empty($breadcrumbs)) {
+			echo generate_breadcrumbs($breadcrumbs);
+		}
+		?>
 	</div>
 
 	<?= $content; ?>

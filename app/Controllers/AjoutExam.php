@@ -4,6 +4,12 @@ namespace App\Controllers;
 
 class AjoutExam extends BaseController
 {
+	public function __construct()
+	{
+		helper('breadcrumbs');
+	}
+
+
     public function Index() {
 
         $semesterModel = new \App\Models\SemesterModel();
@@ -18,13 +24,16 @@ class AjoutExam extends BaseController
         $studentModel = new \App\Models\StudentModel();
         $students = $studentModel->findAll();
 
+		$breadcrumbs = getBreadcrumbs(['Accueil', 'Rattrapages', 'Ajout'], ['accueil', 'rattrapages', 'ajout']);
+
 
         return view('commons/CommonPage', [
             'content' => view('AjoutExam', [
                 'semesters' => $semesters,
                 'resources' => $resources,
                 'exams' => $exams,
-                'students' => $students
+                'students' => $students,
+				'breadcrumbs' => $breadcrumbs
             ])
         ]);
     }
