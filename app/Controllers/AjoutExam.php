@@ -28,11 +28,13 @@ class AjoutExam extends BaseController
         $userModel = new \App\Models\UserModel();
         $users = $userModel->findAll();
 
-		$breadcrumbs = getBreadcrumbs(['Accueil', 'Rattrapages', 'Ajout'], ['accueil', 'rattrapages', 'ajout']);
+		$breadcrumbs = getBreadcrumbs(['Accueil', 'Ajout d\'examen'], ['accueil', 'AjoutExam']);
 
         if (!$session->has('user')) {
             return view('commons/CommonPage', [
-                'content' => view('Connexion')
+                'content' => view('Connexion', [
+					'breadcrumbs' => $breadcrumbs
+				])
             ]);
         }
 
@@ -75,7 +77,7 @@ class AjoutExam extends BaseController
             $examStudentModel->insert($examStudent);
         }
 
-        return redirect()->to('/rattrapages');
+        return redirect()->to('/accueil');
     }
 
     public function Edit($id) {
@@ -101,13 +103,20 @@ class AjoutExam extends BaseController
         $participationModel = new \App\Models\ParticipationModel();
         $participations = $participationModel->where('exam_id', $id)->findAll();
 
+        $userModel = new \App\Models\UserModel();
+        $users = $userModel->findAll();
+
+		$breadcrumbs = getBreadcrumbs(['Accueil', 'Rattrapages', 'Modifier'], ['accueil', 'rattrapages', 'AjoutExam/edit/'.$id]);
+
         return view('commons/CommonPage', [
             'content' => view('EditExam', [
                 'semesters' => $semesters,
                 'resources' => $resources,
                 'exam' => $exam,
                 'students' => $students,
-                'participations' => $participations
+                'participations' => $participations,
+				'breadcrumbs' => $breadcrumbs,
+                'users' => $users
             ])
         ]);
     }
@@ -119,6 +128,16 @@ class AjoutExam extends BaseController
         $examModel = new \App\Models\ExamModel();
         $exam = $examModel->find($id);
         $exam->fill($request->getPost());
+
+        if ($exam->status == 100) {
+            // delete participations
+            $examStudentModel = new \App\Models\ParticipationModel();
+            $examStudentModel->where('exam_id', $id)->delete();
+
+            $examModel->delete($id);
+            return redirect()->to('/accueil');
+        }
+
         $examModel->update($id, $exam);
 
         $participations_data = $request->getPost('participations');
@@ -129,6 +148,12 @@ class AjoutExam extends BaseController
             $pid = explode('-', $data)[0];
             $status = explode('-', $data)[1];
 
+            if ($status == 100)
+            {
+                $examStudentModel->delete($pid);
+                continue;
+            }
+
             $participation = $examStudentModel->find($pid);
             if ($participation->status == $status) {
                 continue;
@@ -137,10 +162,6 @@ class AjoutExam extends BaseController
             $examStudentModel->update($pid, $participation);
         }
 
-
-        return redirect()->to('/rattrapages');
+        return redirect()->to('/accueil');
     }
-
-
-
 }

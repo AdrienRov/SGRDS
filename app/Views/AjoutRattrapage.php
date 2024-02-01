@@ -8,7 +8,6 @@ function getStudentById($students, $id)
     }
 }
 
-
 ?>
 
 
@@ -17,8 +16,8 @@ function getStudentById($students, $id)
 	
 	<form action="<?= site_url('AjoutRattrapage/ajout') ?>" method="post" enctype="multipart/form-data">
 		<div class="flex justify-center">
-			<h1 class="text-xl font-bold">Rattrapage de <?= $resource->name ?></h1>
 			<div class="flex flex-col bg-zinc-300 rounded-lg px-16 py-8 mt-8">
+                <h1 class="text-xl font-bold">Rattrapage de <?= $resource->name ?></h1>
 				<div class="flex flex-row">
 					<div class="flex flex-col gap-1">
 
@@ -27,13 +26,14 @@ function getStudentById($students, $id)
 						<input type="hidden" name="resource_id" id="resource_id" value="<?= $exam->resource_id ?>" />
 
 						<input type="datetime-local" name="date" id="date" placeholder="Date" value="<?= date('Y-m-d\TH:i:s', strtotime($exam->date)) ?>" class="px-32 py-1" />
-						<input type="number" name="duration" id="time" placeholder="Minutes" class="px-32 py-1" value="<?= $exam->duration ?>" />
+						<input type="number" name="duration" id="time" placeholder="Durée (en minutes)" class="px-32 py-1" value="<?= $exam->duration ?>" />
 						<select name="type" id="type" class="px-32 py-1">
 							<option value="0" <?= $exam->type == 0 ? 'selected' : '' ?>>Machine</option>
 							<option value="1" <?= $exam->type == 1 ? 'selected' : '' ?>>Papier</option>
 						</select>
 
 						<input type="text" name="class" id="class" placeholder="Class" class="px-32 py-1" value="<?= $exam->class ?>" />
+
 						<select name="status" id="status" class="px-32 py-1">
 							<option value="0">Programmé</option>
 							<option value="1">En cours</option>
@@ -44,40 +44,81 @@ function getStudentById($students, $id)
 
                         <select name="user_id" id="user_id" class="px-32 py-1">
                             <?php foreach ($users as $user) : ?>
-                                <option value="<?= $user->id ?>"><?= $user->first_name ?> <?= $user->last_name ?></option>
+                                <option value="<?= $user->id ?>" <?= $user->id == $exam->user_id ? 'selected' : '' ?>><?= $user->first_name ?> <?= $user->last_name ?></option>
                             <?php endforeach ?>
                         </select>
+                        
+                        <div class="border border-gray-400 rounded-lg p-4 flex flex-col gap-1">
+                            <h1 class="text-xl font-bold">Etudiants</h1>
 
-						<textarea type="text" name="comment" id="comment" placeholder="Commantaire" class="px-32 py-1">Ratrappage de l'examen du <?= $exam->date ?> de <?= $resource->name ?></textarea>
+                            <?php
+                            $absents = array_filter($participations, function ($participation) {
+                                return $participation->status != 1;
+                            });
+                            if (count($absents) == 0) { ?>
+                                <span class="text-red-400">Aucun étudiant n'est absent</span>
+                                <a href="<?= site_url('AjoutExam/edit/' . $exam->id) ?>" class="px-32 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer">Modifier l'examen</a>
+                            <?php } else {
+                                foreach ($absents as $participation) {
+    
+                                $student = getStudentById($students, $participation->student_id);
+                                ?>
+                                    <span>
+                                        <label for="participation_<?= $participation->id ?>">
+                                            <?= $student->first_name ?> <?= $student->last_name ?>
+                                            <?php if ($participation->status == 0) : ?>
+                                                <span class="text-gray-400">Absent</span>
+                                            <?php elseif ($participation->status == 1) : ?>
+                                                <span class="text-green-400">Présent</span>
+                                            <?php elseif ($participation->status == 2) : ?>
+                                                <span class="text-yellow-400">Justifié</span>
+                                            <?php endif ?>
+                                        </label>
+                                        <input type="checkbox" name="participations[]" id="participation_<?= $student->id ?>" value="<?= $student->id ?>" <?= $participation->status == 2 ? 'checked' : '' ?> class="student" />
+                                    </span>
+                            <?php }
+                            } ?>
 
-                        <!-- list all students participating to the exam with a select to choose who was present, absent or justified -->
-                        <?php foreach ($participations as $participation) {
-                            if ($participation->status == 1)
-                                continue;
-                            $student = getStudentById($students, $participation->student_id);
-                            ?>
-                                <span>
-                                    <label for="participation_<?= $participation->id ?>">
-                                        <?= $student->first_name ?> <?= $student->last_name ?>
-                                        <?php if ($participation->status == 0) : ?>
-                                            <span class="text-gray-400">Absent</span>
-                                        <?php elseif ($participation->status == 1) : ?>
-                                            <span class="text-green-400">Présent</span>
-                                        <?php elseif ($participation->status == 2) : ?>
-                                            <span class="text-yellow-400">Justifié</span>
-                                        <?php endif ?>
-                                    </label>
-                                    <input type="checkbox" name="participations[]" id="participation_<?= $student->id ?>" value="<?= $student->id ?>" <?= $participation->status == 2 ? 'checked' : '' ?> />
-                                </span>
-                        <?php } ?>
+                        </div>
+                        
+                        <textarea type="text" name="comment" id="comment" placeholder="Commantaire" class="px-32 py-1">Ratrappage de l'examen du <?= $exam->date ?> de <?= $resource->name ?></textarea>
 
-
-
-
+                        <p class="text-red-400" id="no_student_selected">Aucun étudiant n'est sélectionné</p>
 						<input type="submit" value="Ajouter" class="px-32 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
+
+    <script>
+
+        // Disable submit button if no student is selected
+        let students = document.querySelectorAll('.student');
+        // bind all checkboxes to the same function
+        const updateSubmitButton = () => {
+            let checked = false;
+            students.forEach(student => {
+                if (student.querySelector('input').checked) {
+                    checked = true;
+                }
+            });
+            if (checked) {
+                document.querySelector('input[type="submit"]').disabled = false;
+                document.querySelector('#no_student_selected').classList.add('hidden');
+            } else {
+                document.querySelector('input[type="submit"]').disabled = true;
+                document.querySelector('#no_student_selected').classList.remove('hidden');
+            }
+        }
+
+        students.forEach(student => {
+            student.querySelector('input').addEventListener('change', updateSubmitButton);
+        });
+
+        updateSubmitButton();
+        
+
+    </script>
+
 </main>

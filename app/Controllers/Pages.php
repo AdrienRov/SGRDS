@@ -4,6 +4,11 @@ namespace App\Controllers;
 
 class Pages extends BaseController
 {
+	public function __construct()
+    {
+        // Charger le helper dans le constructeur
+        helper('breadcrumbs');
+    }
     public function Connexion()
     {
         return view('commons/CommonPage', [
@@ -36,13 +41,16 @@ class Pages extends BaseController
 
         $user = $session->get('user');
 
+		$breadcrumbs = getBreadcrumbs(['Accueil'], ['accueil']);
+
         return view('commons/CommonPage', [
             'content' => view('Accueil', [
                 'exams' => $exams,
                 'semesters' => $semesters,
                 'resources' => $resources,
                 'users' => $users,
-                'user' => $user
+                'user' => $user,
+				'breadcrumbs' => $breadcrumbs
             ])
         ]);
 
@@ -78,6 +86,8 @@ class Pages extends BaseController
 
         $user = $session->get('user');
 
+		$breadcrumbs = getBreadcrumbs(['Accueil', 'Absences'], ['accueil', 'absences']);
+
         return view('commons/CommonPage', [
             'content' => view('Absences', [
                 'exams' => $exams,
@@ -86,7 +96,8 @@ class Pages extends BaseController
                 'users' => $users,
                 'participations' => $participations,
                 'students' => $students,
-                'user' => $user
+                'user' => $user,
+				'breadcrumbs' => $breadcrumbs
             ])
         ]);
     }
@@ -115,13 +126,16 @@ class Pages extends BaseController
 
         $user = $session->get('user');
 
+		$breadcrumbs = getBreadcrumbs(['Accueil', 'Rattrapages'], ['accueil', 'rattrapages']);
+
         return view('commons/CommonPage', [
             'content' => view('Rattrapages', [
                 'exams' => $exams,
                 'semesters' => $semesters,
                 'resources' => $resources,
                 'users' => $users,
-                'user' => $user
+                'user' => $user,
+				'breadcrumbs' => $breadcrumbs
             ])
         ]);
     }

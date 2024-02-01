@@ -29,7 +29,7 @@ function getStudentById($students, $id)
                             <?php endforeach; ?>
                         </select>
 
-                        <select name="resource_id" id="resource_id" class="px-32 py-1" disabled>
+                        <select name="resource_id" id="resource_id" class="px-32 py-1">
                             <option value="0">Aucun</option>
                             <?php foreach ($resources as $resource) : ?>
                                 <option value="<?= $resource->id ?>" <?= $resource->id == $exam->resource_id ? 'selected' : '' ?>
@@ -52,6 +52,13 @@ function getStudentById($students, $id)
                             <option value="1" <?= $exam->type == 1 ? 'selected' : '' ?>>Papier</option>
                         </select>
 
+                        
+                        <select name="user_id" id="user_id" class="px-32 py-1">
+                            <?php foreach ($users as $user) : ?>
+                                <option value="<?= $user->id ?>" <?= $user->id == $exam->user_id ? 'selected' : '' ?>><?= $user->first_name ?> <?= $user->last_name ?></option>
+                            <?php endforeach ?>
+                        </select>
+
                         <input type="text" name="class" id="class" placeholder="Class" class="part2 px-32 py-1" value="<?= $exam->class ?>" />
                         <select name="status" id="status" class="part2 px-32 py-1">
                             <option value="0" <?= $exam->status == 0 ? 'selected' : '' ?>>Programmé</option>
@@ -59,6 +66,7 @@ function getStudentById($students, $id)
                             <option value="2" <?= $exam->status == 2 ? 'selected' : '' ?>>Neutralisé</option>
                             <option value="3" <?= $exam->status == 3 ? 'selected' : '' ?>>Annulé</option>
                             <option value="4" <?= $exam->status == 4 ? 'selected' : '' ?>>Passé</option>
+                            <option value="100" <?= $exam->status == 100 ? 'selected' : '' ?>>Supprimé</option>
                         </select>
 
                         <!-- list students with checkbox to select, send as array of id in post -->
@@ -67,13 +75,15 @@ function getStudentById($students, $id)
                             ?>
                             <span>
                                 <label for="student_<?= $participation->student_id ?>"><?= $studient->first_name ?> <?= $studient->last_name ?></label>
-                                <select name="participations[]" id="participation_<?= $participation->student_id ?>" class="px-32 py-1">
-                                    <option value="<?= $participation->student_id ?>-0" <?= $participation->status == 0 ? 'selected' : '' ?>>Absent</option>
-                                    <option value="<?= $participation->student_id ?>-1" <?= $participation->status == 1 ? 'selected' : '' ?>>Présent</option>
-                                    <option value="<?= $participation->student_id ?>-2" <?= $participation->status == 2 ? 'selected' : '' ?>>Justifié</option>
+                                <select name="participations[]" id="participation_<?= $participation->id ?>" class="px-32 py-1">
+                                    <option value="<?= $participation->id ?>-0" <?= $participation->status == 0 ? 'selected' : '' ?>>Absent</option>
+                                    <option value="<?= $participation->id ?>-1" <?= $participation->status == 1 ? 'selected' : '' ?>>Présent</option>
+                                    <option value="<?= $participation->id ?>-2" <?= $participation->status == 2 ? 'selected' : '' ?>>Justifié</option>
+                                    <option value="<?= $participation->id ?>-100" <?= $participation->status == 3 ? 'selected' : '' ?>>Supprimer</option>
                                 </select>
                             </span>
                         <?php } ?>
+
 
 
                         <input type="submit" value="Modifier" class="part2 px-32 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
@@ -84,16 +94,6 @@ function getStudentById($students, $id)
     </form>
 
     <script>
-        /*
-        $('.part2').hide();
-        $('#semester_id, #resource_id').on('change', () => {
-            if ($('#semester_id').val() != 0 && $('#resource_id').val() != 0) {
-                $('.part2').show();
-            } else {
-                $('.part2').hide();
-            }
-        });
 
-         */
     </script>
 </main>

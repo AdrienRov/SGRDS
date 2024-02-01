@@ -1,3 +1,4 @@
 
 ## writable files
 /writable
+app/Config/Database.php
