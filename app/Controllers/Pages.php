@@ -82,7 +82,8 @@ class Pages extends BaseController
         }
 
         $examModel = new \App\Models\ExamModel();
-        $exams = $examModel->findAll();
+        // with original_id is not null
+        $exams = $examModel->where('original_id IS NOT NULL')->findAll();
 
         $semesterModel = new \App\Models\SemesterModel();
         $semesters = $semesterModel->findAll();

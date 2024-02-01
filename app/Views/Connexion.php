@@ -1,10 +1,7 @@
 <main class="flex flex-1 justify-center items-center">
 <form id="loginForm">
-    <?php if (isset($error) && !empty($error)) : ?>
-        <div class="mb-4 text-red-500">
-            <?= esc($error) ?>
-        </div>
-    <?php endif; ?>
+    <div class="mb-4 text-red-500" id="error">
+    </div>
 
     <div class="mb-4">
         <label for="email" class="block text-gray-600 text-sm font-medium mb-2">Email</label>
@@ -18,6 +15,10 @@
 
     <button type="button" id="submitBtn" class="w-full bg-orange hover:bg-orange-light text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue">
         Connexion
+    </button>
+
+    <button type="button" id="resetPassword" class="mt-2 w-full bg-orange hover:bg-orange-light text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue">
+        Mot de passe oublié
     </button>
 </form>
 </main>

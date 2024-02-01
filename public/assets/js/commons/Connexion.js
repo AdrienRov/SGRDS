@@ -7,11 +7,42 @@ $(document).ready(function () {
             url: "/connexion",
             data: formData,
             success: function (response) {
-                loadPage("accueil");
+                let data = JSON.parse(response);
+                if (data.success) {
+                    loadPage("accueil");
+                }
+                else {
+                    $("#error").html(data.error);
+
+                }
             },
             error: function (error) {
                 console.log(error);
             }
         });
     });
+
+
+    $("#resetPassword").click(function () {
+        var formData = $("#loginForm").serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "/forgotPassword",
+            data: formData,
+            success: function (response) {
+                let data = JSON.parse(response);
+                if (data.success) {
+                    $("#error").html("Un email vous a été envoyé");
+                }
+                else {
+                    $("#error").html("Email invalide");
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
 });
