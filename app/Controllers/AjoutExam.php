@@ -4,6 +4,12 @@ namespace App\Controllers;
 
 class AjoutExam extends BaseController
 {
+	public function __construct()
+	{
+		helper('breadcrumbs');
+	}
+
+
     public function Index() {
         $session = \Config\Services::session();
 
@@ -22,11 +28,13 @@ class AjoutExam extends BaseController
         $userModel = new \App\Models\UserModel();
         $users = $userModel->findAll();
 
+		$breadcrumbs = getBreadcrumbs(['Accueil', 'Rattrapages', 'Ajout'], ['accueil', 'rattrapages', 'ajout']);
+
         if (!$session->has('user')) {
             return view('commons/CommonPage', [
                 'content' => view('Connexion')
             ]);
-        }  
+        }
 
         return view('commons/CommonPage', [
             'content' => view('AjoutExam', [
@@ -34,7 +42,8 @@ class AjoutExam extends BaseController
                 'resources' => $resources,
                 'exams' => $exams,
                 'students' => $students,
-                'users' => $users
+                'users' => $users,
+				'breadcrumbs' => $breadcrumbs
             ])
         ]);
     }
@@ -70,6 +79,12 @@ class AjoutExam extends BaseController
     }
 
     public function Edit($id) {
+        $session = \Config\Services::session();
+        if (!$session->has('user')) {
+            return view('commons/CommonPage', [
+                'content' => view('Connexion')
+            ]);
+        }
 
         $semesterModel = new \App\Models\SemesterModel();
         $semesters = $semesterModel->findAll();

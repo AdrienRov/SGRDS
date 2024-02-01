@@ -6,7 +6,7 @@ class DirectorDashboard extends BaseController
 {
 
     public function __construct() {
-
+		helper('breadcrumbs');
     }
 
     public function Index() {
@@ -29,6 +29,8 @@ class DirectorDashboard extends BaseController
         $session = \Config\Services::session();
         $user = $session->get('user');
 
+		$breadcrumbs = getBreadcrumbs(['Accueil'], ['DirectorDashboard']);
+
         if ($session->has('user') || $user->type = 1) {
             return view('commons/CommonPage', [
                 'content' => view('DirectorDashboard', [
@@ -36,7 +38,8 @@ class DirectorDashboard extends BaseController
                     'resources' => $resources,
                     'users' => $users,
                     'userResources' => $userResources,
-                    'students' => $students
+                    'students' => $students,
+					'breadcrumbs' => $breadcrumbs
                 ])
             ]);
         }
