@@ -24,6 +24,9 @@ $routes->post('/AjoutExam/edit/([0-9]+)', 'AjoutExam::EditExam/$1');
 $routes->get('/AjoutRattrapage/([0-9]+)', 'AjoutRattrapage::Index/$1');
 $routes->post('/AjoutRattrapage/ajout', 'AjoutRattrapage::Ajout');
 
+$routes->get('/UserProfile', 'UserProfile::MyProfile');
+$routes->post('/UserProfile/edit', 'UserProfile::EditProfile');
+
 
 $routes->get('/DirectorDashboard', 'DirectorDashboard::Index');
 $routes->get('/DirectorDashboard/supprimerSemestre/([0-9]+)', 'DirectorDashboard::SupprimerSemestre/$1');
