@@ -21,7 +21,7 @@ class UserProfile extends BaseController
 
         $user = $session->get('user');
 
-		$breadcrumbs = getBreadcrumbs(['Accueil', 'Mon profil'], ['accueil', 'userprofile']);
+		$breadcrumbs = getBreadcrumbs(['Accueil', 'Mon profil'], ['accueil', 'UserProfile']);
 
         return view('commons/CommonPage', [
             'content' => view('UserProfile', [

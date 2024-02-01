@@ -54,7 +54,7 @@ function getStudentById($students, $id)
         <h1 class="text-2xl font-bold">Absences</h1>
 
         <div>
-            <input type="text" name="search" id="search" placeholder="Rechercher" class="px-32 py-1" />
+            <input type="text" name="search" id="search" placeholder="Rechercher" class="px-32 py-1 border border-slate-300" />
             <select name="semester" id="semester" class="px-32 py-1">
                 <option value="">Tous les semestres</option>
                 <?php foreach ($semesters as $semester) : ?>

@@ -216,7 +216,7 @@ function getResourceById($resources, $id)
                                     <td class="border px-4 py-2"><?= $student->first_name ?> <?= $student->last_name ?></td>
                                     <td class="border px-4 py-2"><?= $student->email ?></td>
                                     <td class="border px-4 py-2"><?= $student->promotion ?></td>
-                                    <td class="border px-4 py-2">
+                                    <td class="border px-4 py-2 text-center">
                                         <a href="<?= site_url('DirectorDashboard/supprimerStudent/' . $student->id) ?>" class="px-4 py-1 text-white bg-red-600 hover:bg-red-700">Supprimer</a>
                                     </td>
                                 </tr>
