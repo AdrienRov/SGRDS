@@ -1,7 +1,7 @@
-<main>
-
-    <h1 class="text-2xl font-bold">Mon profile</h1>
-    <p class="text-xl font-bold">Informations personnelles</p>
+<main class="flex-1">
+    <div class="mx-3 my-3">
+    <h1 class="text-3xl font-bold">Mon profil</h1>
+    <p class="text-2xl font-bold">Informations personnelles</p>
 
         <form action="<?= site_url('UserProfile/edit') ?>" method="post" enctype="multipart/form-data">
 
@@ -26,15 +26,11 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" value="Modifier" class="px-32 py-1 bg-orange-400" />
+                        <input type="submit" value="Modifier" class="px-32 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
                     </td>
                 </tr>
             </table>
 
         </form>
-
-
-
-
-
+    </div>
 </main>

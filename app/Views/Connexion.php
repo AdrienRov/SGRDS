@@ -1,4 +1,4 @@
-<main class="flex justify-center items-center">
+<main class="flex flex-1 justify-center items-center">
 <form id="loginForm">
     <?php if (isset($error) && !empty($error)) : ?>
         <div class="mb-4 text-red-500">
@@ -16,7 +16,7 @@
         <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-400">
     </div>
 
-    <button type="button" id="submitBtn" class="w-full button-template text-white py-2 px-4 rounded hover:button-template-hover focus:outline-none focus:shadow-outline-blue">
+    <button type="button" id="submitBtn" class="w-full bg-orange hover:bg-orange-light text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue">
         Connexion
     </button>
 </form>
