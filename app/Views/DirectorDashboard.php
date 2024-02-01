@@ -27,6 +27,11 @@ function getResourceById($resources, $id)
     <!-- Content for each tab -->
     <div class="flex flex-col items-center">
     <div id="semesters" class="tabcontent bg-zinc-300 rounded-lg px-16 mr-3 py-8" style="display: block;">
+    <?php if (session('error')) : ?>
+                    <div class="bg-red-500 text-white px-4 py-2 mb-4 rounded-md">
+                        <?= session('error') ?>
+                    </div>
+                <?php endif; ?>
     <h1 class="text-2xl">Semestres</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
@@ -68,11 +73,6 @@ function getResourceById($resources, $id)
     <h1 class="text-2xl">Resources</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
-                <?php if (session('error')) : ?>
-                    <div class="bg-red-500 text-white px-4 py-2 mb-4 rounded-md">
-                        <?= session('error') ?>
-                    </div>
-                <?php endif; ?>
                         <table class="table-auto bg-white rounded-md">
                         <thead>
                         <tr>
