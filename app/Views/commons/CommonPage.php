@@ -63,7 +63,7 @@
         ?>
 	</header>
 
-	<div class="text-sm breadcrumbs">
+	<div class="text-sm">
 		<?php
 		helper('breadcrumbs');
 
