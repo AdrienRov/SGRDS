@@ -26,11 +26,11 @@ function getUserById($users, $id)
     }
 }
 ?>
-<main>
-
+<main class="flex-1">
+ <div class="mx-5">
     <?php if ($user->type == 1) : ?>
-        <h1 class="text-3xl font-bold mx-3 my-3">Esapce Directeur</h1>
-        <a href="/DirectorDashboard" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Dashboard</a>
+        <h1 class="text-3xl font-bold mx-3 my-3">Espace Directeur</h1>
+        <a href="/DirectorDashboard" class="bg-orange hover:bg-orange-light text-white font-bold py-2 px-4 rounded">Dashboard</a>
     <?php endif ?>
 
 
@@ -68,7 +68,7 @@ function getUserById($users, $id)
 
                     <td class="border px-4 py-2">
                         <a class="" href="<?= site_url('AjoutRattrapage/' . $exam->id) ?>">
-                            <svg class="bg-blue-500 hover:bg-blue-700 rounded w-[40px] h-[40px] fill-[#5e5e5e] p-2" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="rounded w-[40px] h-[40px] fill-[#5e5e5e] hover:fill-orange p-2" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M192 0c-41.8 0-77.4 26.7-90.5 64H64C28.7 64 0 92.7 0 128V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H282.5C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM112 192H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"></path>
                             </svg>
                         </a>
@@ -138,5 +138,5 @@ function getUserById($users, $id)
             });
         });
     </script>
-
+ </div>
 </main>

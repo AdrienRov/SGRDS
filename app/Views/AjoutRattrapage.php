@@ -12,13 +12,13 @@ function getStudentById($students, $id)
 ?>
 
 
-<main>
-	<h1 class="h1">Ajout d'un ratrappage</h1>
+<main class="flex-1">
+    <h1 class="text-3xl font-bold mx-3 my-3">Ajouter un rattrapage</h1>
 	
 	<form action="<?= site_url('AjoutRattrapage/ajout') ?>" method="post" enctype="multipart/form-data">
 		<div class="flex justify-center">
-			<h1>Rattrapage de <?= $resource->name ?></h1>
-			<div class="flex flex-col bg-slate-400 px-16 py-8 mt-8">
+			<h1 class="text-xl font-bold">Rattrapage de <?= $resource->name ?></h1>
+			<div class="flex flex-col bg-zinc-300 rounded-lg px-16 py-8 mt-8">
 				<div class="flex flex-row">
 					<div class="flex flex-col gap-1">
 
@@ -74,7 +74,7 @@ function getStudentById($students, $id)
 
 
 
-						<input type="submit" value="Ajouter" class="px-32 py-1 bg-orange-400" />
+						<input type="submit" value="Ajouter" class="px-32 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
 					</div>
 				</div>
 			</div>
