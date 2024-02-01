@@ -66,6 +66,7 @@ function getStudentById($students, $id)
                             <option value="2" <?= $exam->status == 2 ? 'selected' : '' ?>>Neutralisé</option>
                             <option value="3" <?= $exam->status == 3 ? 'selected' : '' ?>>Annulé</option>
                             <option value="4" <?= $exam->status == 4 ? 'selected' : '' ?>>Passé</option>
+                            <option value="100" <?= $exam->status == 100 ? 'selected' : '' ?>>Supprimé</option>
                         </select>
 
                         <!-- list students with checkbox to select, send as array of id in post -->
@@ -78,9 +79,11 @@ function getStudentById($students, $id)
                                     <option value="<?= $participation->id ?>-0" <?= $participation->status == 0 ? 'selected' : '' ?>>Absent</option>
                                     <option value="<?= $participation->id ?>-1" <?= $participation->status == 1 ? 'selected' : '' ?>>Présent</option>
                                     <option value="<?= $participation->id ?>-2" <?= $participation->status == 2 ? 'selected' : '' ?>>Justifié</option>
+                                    <option value="<?= $participation->id ?>-100" <?= $participation->status == 3 ? 'selected' : '' ?>>Supprimer</option>
                                 </select>
                             </span>
                         <?php } ?>
+
 
 
                         <input type="submit" value="Modifier" class="part2 px-32 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
@@ -91,16 +94,6 @@ function getStudentById($students, $id)
     </form>
 
     <script>
-        /*
-        $('.part2').hide();
-        $('#semester_id, #resource_id').on('change', () => {
-            if ($('#semester_id').val() != 0 && $('#resource_id').val() != 0) {
-                $('.part2').show();
-            } else {
-                $('.part2').hide();
-            }
-        });
 
-         */
     </script>
 </main>

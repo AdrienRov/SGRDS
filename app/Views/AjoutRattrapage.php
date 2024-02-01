@@ -74,7 +74,7 @@ function getStudentById($students, $id)
                                                 <span class="text-yellow-400">Justifié</span>
                                             <?php endif ?>
                                         </label>
-                                        <input type="checkbox" name="participations[]" id="participation_<?= $student->id ?>" value="<?= $student->id ?>" <?= $participation->status == 2 ? 'checked' : '' ?> />
+                                        <input type="checkbox" name="participations[]" id="participation_<?= $student->id ?>" value="<?= $student->id ?>" <?= $participation->status == 2 ? 'checked' : '' ?> class="student" />
                                     </span>
                             <?php }
                             } ?>
@@ -83,11 +83,42 @@ function getStudentById($students, $id)
                         
                         <textarea type="text" name="comment" id="comment" placeholder="Commantaire" class="px-32 py-1">Ratrappage de l'examen du <?= $exam->date ?> de <?= $resource->name ?></textarea>
 
-
+                        <p class="text-red-400" id="no_student_selected">Aucun étudiant n'est sélectionné</p>
 						<input type="submit" value="Ajouter" class="px-32 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
+
+    <script>
+
+        // Disable submit button if no student is selected
+        let students = document.querySelectorAll('.student');
+        // bind all checkboxes to the same function
+        const updateSubmitButton = () => {
+            let checked = false;
+            students.forEach(student => {
+                if (student.querySelector('input').checked) {
+                    checked = true;
+                }
+            });
+            if (checked) {
+                document.querySelector('input[type="submit"]').disabled = false;
+                document.querySelector('#no_student_selected').classList.add('hidden');
+            } else {
+                document.querySelector('input[type="submit"]').disabled = true;
+                document.querySelector('#no_student_selected').classList.remove('hidden');
+            }
+        }
+
+        students.forEach(student => {
+            student.querySelector('input').addEventListener('change', updateSubmitButton);
+        });
+
+        updateSubmitButton();
+        
+
+    </script>
+
 </main>

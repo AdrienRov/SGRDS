@@ -63,7 +63,7 @@
 							</span>
 							<?php foreach ($students as $student) : ?>
 							<span x-data="<?= $student->promotion ?>" class="student">
-								<input type="checkbox" name="students[]" id="student_<?= $student->id ?>" value="<?= $student->id ?>" />
+								<input type="checkbox" name="students[]" id="student_<?= $student->id ?>" value="<?= $student->id ?>" class="student_input" />
 								<label for="student_<?= $student->id ?>"><?= $student->first_name ?> <?= $student->last_name ?></label>
 							</span>
 							<?php endforeach ?>
@@ -71,6 +71,7 @@
 						
 						<textarea type="text" name="comment" id="comment" placeholder="Commantaire" class="px-32 py-1"></textarea>
 
+						<p class="text-red-400" id="no_student_selected">Aucun étudiant n'est sélectionné</p>
 						<input type="submit" value="Ajouter" class="part2 px-32 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
 					</div>
 				</div>
@@ -79,7 +80,32 @@
 	</form>
 
 	<script>
+        // Disable submit button if no student is selected
+        let students = document.querySelectorAll('.student');
+        // bind all checkboxes to the same function
+        const updateSubmitButton = () => {
+            let checked = false;
+            students.forEach(student => {
+				console.log(student.querySelector('.student_input').checked);
+                if (student.querySelector('.student_input').checked) {
+					checked = true;
+					console.log('checked');
+				}
+            });
+            if (checked) {
+                document.querySelector('input[type="submit"]').disabled = false;
+                document.querySelector('#no_student_selected').classList.add('hidden');
+            } else {
+                document.querySelector('input[type="submit"]').disabled = true;
+                document.querySelector('#no_student_selected').classList.remove('hidden');
+            }
+        }
 
+        students.forEach(student => {
+            student.querySelector('input').addEventListener('change', updateSubmitButton);
+        });
+
+        updateSubmitButton();
 
 		$('#select_all_students').on('change', () => {
 			let checked = $('#select_all_students').prop('checked');
@@ -94,12 +120,14 @@
 					student.querySelector('input').checked = false;
 				}
 			});
+			updateSubmitButton();
 		});
 		
 		$('#promotion').on('change', () => {
 			let promotion = $('#promotion').val();
 			let students = document.querySelectorAll('.student');
 			let all_checked = true;
+
 			students.forEach(student => {
 				if (student.getAttribute('x-data') == promotion || promotion == 0) {
 					student.style.display = 'block';
@@ -116,7 +144,7 @@
 			} else {
 				$('#select_all_students').prop('checked', false);
 			}
-			
+
 		})
 
 		$('.part2').hide();
