@@ -18,13 +18,17 @@ class AjoutExam extends BaseController
         $studentModel = new \App\Models\StudentModel();
         $students = $studentModel->findAll();
 
+        $userModel = new \App\Models\UserModel();
+        $users = $userModel->findAll();
+
 
         return view('commons/CommonPage', [
             'content' => view('AjoutExam', [
                 'semesters' => $semesters,
                 'resources' => $resources,
                 'exams' => $exams,
-                'students' => $students
+                'students' => $students,
+                'users' => $users
             ])
         ]);
     }
@@ -38,13 +42,10 @@ class AjoutExam extends BaseController
             ]);
         }
 
-        $id = $session->get('user')->id;
-
         $request = \Config\Services::request();
         $examModel = new \App\Models\ExamModel();
         $exam = new \App\Entities\Exam();
         $exam->fill($request->getPost());
-        $exam->user_id = $id;
         $examModel->insert($exam);
 
         $id = $examModel->getInsertID();
