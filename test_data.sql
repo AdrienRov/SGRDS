@@ -28,3 +28,6 @@ INSERT INTO participations (status, exam_id, student_id, created_at, updated_at)
 -- mdp: 0000 --
 INSERT INTO users (first_name, last_name, email, password, type, created_at, updated_at)
 VALUES ('Rodolphe', 'Charrier', 'director@iut-lehavre.fr', '$2y$10$vA1tdXSCpIzCtMVFDG8h4eY0ha5zUBhiGJBlbmPJtH9JVkLY56v1e', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+INSERT INTO users (first_name, last_name, email, password, type, created_at, updated_at)
+VALUES ('Bruno', 'Legrix', 'enseignant@iut-lehavre.fr', '$2y$10$vA1tdXSCpIzCtMVFDG8h4eY0ha5zUBhiGJBlbmPJtH9JVkLY56v1e', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
