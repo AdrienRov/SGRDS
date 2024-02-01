@@ -63,7 +63,7 @@
         ?>
 	</header>
 
-	<div>
+	<div class="my-4">
 		<?php
 		helper('breadcrumbs');
 
