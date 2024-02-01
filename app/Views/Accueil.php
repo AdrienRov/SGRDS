@@ -39,6 +39,7 @@ function getUserById($users, $id)
     <div class="border border-gray-400 rounded-lg p-4 flex flex-col gap-1">
         <h1 class="text-2xl font-bold">Exams</h1>
         <div>
+            <a href="<?= site_url('AjoutExam') ?>" class="px-8  py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer">Ajouter un examen</a>
             <input type="text" name="search" id="search" placeholder="Rechercher" class="px-32 py-1" />
             <select name="semester" id="semester" class="px-32 py-1">
                 <option value="">Tous les semestres</option>
