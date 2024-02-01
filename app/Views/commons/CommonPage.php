@@ -27,16 +27,15 @@
 		</div>
 
 		<?php
+
             if ($userIsLoggedIn && $currentPage !== '/logout') {
                 ?>
                 <nav class="flex items-center" id="navbar">
                     <a href="#" data-page="absences" class="ml-4 page-link">Absences</a>
 					<?php
-						if (intval($_SESSION['user']->type) === 1) {
-							?>
+							?> 
 								<a href="#" data-page="AjoutExam" class="ml-4 page-link">Ajout d'examen</a>
 							<?php
-						}
 					?>
                     <a href="#" data-page="rattrapages" class="ml-4 page-link">Rattrapages</a>
                     <a href="#" data-page="logout" id="logoutBtn" class="ml-4 page-link">
