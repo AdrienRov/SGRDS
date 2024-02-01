@@ -68,8 +68,12 @@ function getResourceById($resources, $id)
     <h1 class="text-2xl">Resources</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
-
-                    <table class="table-auto bg-white rounded-md">
+                <?php if (session('error')) : ?>
+                    <div class="bg-red-500 text-white px-4 py-2 mb-4 rounded-md">
+                        <?= session('error') ?>
+                    </div>
+                <?php endif; ?>
+                        <table class="table-auto bg-white rounded-md">
                         <thead>
                         <tr>
                             <th class="px-4 py-2">Nom</th>
