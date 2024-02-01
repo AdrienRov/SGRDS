@@ -70,6 +70,12 @@ class AjoutExam extends BaseController
     }
 
     public function Edit($id) {
+        $session = \Config\Services::session();
+        if (!$session->has('user')) {
+            return view('commons/CommonPage', [
+                'content' => view('Connexion')
+            ]);
+        }
 
         $semesterModel = new \App\Models\SemesterModel();
         $semesters = $semesterModel->findAll();

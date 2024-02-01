@@ -9,7 +9,7 @@ $(document).ready(function () {
             success: function (response) {
                 let data = JSON.parse(response);
                 if (data.success) {
-                    loadPage("accueil");
+                    window.location.href = "/accueil";
                 }
                 else {
                     $("#error").html(data.error);
@@ -44,5 +44,4 @@ $(document).ready(function () {
             }
         });
     });
-
 });
