@@ -12,15 +12,14 @@ function getResourceById($resources, $id)
 ?>
 
     <main>
-    <h1 class="text-3xl">Dashboard du directeur</h1>
+    <h1 class="text-3xl font-bold mx-3 my-3">Dashboard du directeur</h1>
 
     <div class="flex justify-center">
-        <div class="flex flex-col bg-slate-400 px-16 py-8 mt-8">
-            <h1 class="text-2xl">Semeestres</h1>
+        <div class="flex flex-col bg-zinc-300 rounded-lg px-16 mr-3 py-8 mt-8">
+            <h1 class="text-2xl">Semestres</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
-
-                    <table class="table-auto">
+                    <table class="table-auto bg-white rounded-md">
                         <thead>
                             <tr>
                                 <th class="px-4 py-2">Année</th>
@@ -28,13 +27,13 @@ function getResourceById($resources, $id)
                                 <th class="px-4 py-2">Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-center">
                             <?php foreach ($semesters as $semester) : ?>
                                 <tr>
                                     <td class="border px-4 py-2"><?= $semester->annee ?></td>
                                     <td class="border px-4 py-2"><?= $semester->semester ?></td>
                                     <td class="border px-4 py-2">
-                                        <a href="<?= site_url('DirectorDashboard/supprimerSemestre/' . $semester->id) ?>" class="px-4 py-1 bg-red-400">Supprimer</a>
+                                        <a href="<?= site_url('DirectorDashboard/supprimerSemestre/' . $semester->id) ?>" class="px-4 py-1 text-white bg-red-600 hover:bg-red-700">Supprimer</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -48,17 +47,17 @@ function getResourceById($resources, $id)
                         <input type="text" name="annee" id="annee" placeholder="Année" class="px-8 py-1" />
                         <input type="number" name="semester" id="semester" placeholder="Semestre" class="px-8 py-1" />
 
-                        <input type="submit" value="Ajouter" class="px-8 py-1 bg-orange-400" />
+                        <input type="submit" value="Ajouter" class="px-8 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
                     </form>
                 </div>
             </div>
         </div>
-        <div class="flex flex-col bg-slate-400 px-16 py-8 mt-8">
+        <div class="flex flex-col bg-zinc-300 rounded-lg px-16 py-8 mt-8">
             <h1 class="text-2xl">Resources</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
 
-                    <table class="table-auto">
+                    <table class="table-auto bg-white rounded-md">
                         <thead>
                         <tr>
                             <th class="px-4 py-2">Nom</th>
@@ -69,8 +68,8 @@ function getResourceById($resources, $id)
                         <?php foreach ($resources as $resource) : ?>
                             <tr>
                                 <td class="border px-4 py-2"><?= $resource->name ?></td>
-                                <td class="border px-4 py-2">
-                                    <a href="<?= site_url('DirectorDashboard/supprimerResource/' . $resource->id) ?>" class="px-4 py-1 bg-red-400">Supprimer</a>
+                                <td class="border px-4 py-2 text-center">
+                                    <a href="<?= site_url('DirectorDashboard/supprimerResource/' . $resource->id) ?>" class="px-4 py-1 text-white bg-red-600 hover:bg-red-700">Supprimer</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -80,7 +79,7 @@ function getResourceById($resources, $id)
                     <h1 class="text-xl">Ajouter une resource</h1>
                     <form action="<?= site_url('DirectorDashboard/ajoutResource') ?>" method="post" enctype="multipart/form-data">
                         <input type="text" name="name" id="name" placeholder="Nom" class="px-8 py-1" />
-                        <input type="submit" value="Ajouter" class="px-8 py-1 bg-orange-400" />
+                        <input type="submit" value="Ajouter" class="px-8 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
                     </form>
                 </div>
             </div>
@@ -88,12 +87,12 @@ function getResourceById($resources, $id)
     </div>
 
     <div class="flex justify-center">
-        <div class="flex flex-col bg-slate-400 px-16 py-8 mt-8">
+        <div class="flex flex-col bg-zinc-300 rounded-lg px-16 py-8 mt-8">
             <h1 class="text-2xl">Utilisateurs</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
 
-                    <table class="table-auto">
+                    <table class="table-auto bg-white rounded-md">
                         <thead>
                             <tr>
                                 <th class="px-4 py-2">Nom</th>
@@ -141,11 +140,11 @@ function getResourceById($resources, $id)
                                                     }
                                                 } ?>
                                             </select>
-                                            <input type="submit" value="Ajouter" class="px-4 py-1 bg-orange-400" />
+                                            <input type="submit" value="Ajouter" class="px-4 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
                                         </form>
                                     </td>
                                     <td class="border px-4 py-2">
-                                        <a href="<?= site_url('DirectorDashboard/supprimerUser/' . $user->id) ?>" class="px-4 py-1 bg-red-400">Supprimer</a>
+                                        <a href="<?= site_url('DirectorDashboard/supprimerUser/' . $user->id) ?>" class="px-4 py-1 text-white bg-red-600 hover:bg-red-700">Supprimer</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -177,19 +176,19 @@ function getResourceById($resources, $id)
                             <option value="1">Directeur</option>
                         </select>
 
-                        <input type="submit" value="Ajouter" class="px-8 py-1 bg-orange-400" />
+                        <input type="submit" value="Ajouter" class="px-8 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <div class="flex justify-center">
-        <div class="flex flex-col bg-slate-400 px-16 py-8 mt-8">
+    <div class="flex justify-center mb-10">
+        <div class="flex flex-col bg-zinc-300 rounded-lg px-16 py-8 mt-8">
             <h1 class="text-2xl">Etudiants</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
 
-                    <table class="table-auto">
+                    <table class="table-auto bg-white rounded-md">
                         <thead>
                             <tr>
                                 <th class="px-4 py-2">Nom</th>
@@ -205,7 +204,7 @@ function getResourceById($resources, $id)
                                     <td class="border px-4 py-2"><?= $student->email ?></td>
                                     <td class="border px-4 py-2"><?= $student->promotion ?></td>
                                     <td class="border px-4 py-2">
-                                        <a href="<?= site_url('DirectorDashboard/supprimerStudent/' . $student->id) ?>" class="px-4 py-1 bg-red-400">Supprimer</a>
+                                        <a href="<?= site_url('DirectorDashboard/supprimerStudent/' . $student->id) ?>" class="px-4 py-1 text-white bg-red-600 hover:bg-red-700">Supprimer</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -220,13 +219,13 @@ function getResourceById($resources, $id)
                         <input type="email" name="email" id="email" placeholder="Email" class="px-8 py-1" />
                         <input type="text" name="promotion" id="promotion" placeholder="Promotion" class="px-8 py-1" />
 
-                        <input type="submit" value="Ajouter" class="px-8 py-1 bg-orange-400" />
+                        <input type="submit" value="Ajouter" class="px-8 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
                     </form>
 
                     <h1 class="text-xl">Importer des étudiants depuit un fichier CSV</h1>
                     <form action="<?= site_url('DirectorDashboard/importStudents') ?>" method="post" enctype="multipart/form-data">
                         <input type="file" name="file" id="file" />
-                        <input type="submit" value="Importer" class="px-8 py-1 bg-orange-400" />
+                        <input type="submit" value="Importer" class="px-8 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />
                     </form>
 
                 </div>

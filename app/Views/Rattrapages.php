@@ -28,8 +28,8 @@ function getUserById($users, $id)
 ?>
 
 
-<main>
-    <h1 class="text-2xl font-bold">Rattrapages</h1>
+<main class="flex-1">
+    <h1 class="text-3xl font-bold mx-3 my-3">Rattrapages</h1>
 
     <div>
         <input type="text" name="search" id="search" placeholder="Rechercher" class="px-32 py-1" />
@@ -52,6 +52,7 @@ function getUserById($users, $id)
         <label for="mine">Mes rattrapages</label>
         <input type="checkbox" name="mine" id="mine" class="px-32 py-1" />
     </div>
+    <div class="mx-10">
     <table class="table-auto w-full">
         <thead>
             <tr>
@@ -104,6 +105,7 @@ function getUserById($users, $id)
             <?php endforeach ?>
         </tbody>
     </table>
+    </div>
 
     <script>
         const search = document.querySelector('#search');
