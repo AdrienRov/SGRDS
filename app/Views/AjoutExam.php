@@ -45,12 +45,15 @@
                         </select>
 
                         <!-- list students with checkbox to select, send as array of id in post -->
-                        <?php foreach ($students as $student) : ?>
-                        <span>
-                            <input type="checkbox" name="students[]" id="student_<?= $student->id ?>" value="<?= $student->id ?>" />
-                            <label for="student_<?= $student->id ?>"><?= $student->first_name ?> <?= $student->last_name ?></label>
-                        </span>
-                        <?php endforeach ?>
+						<div class="border border-gray-400 rounded-lg p-4 flex flex-col gap-1">
+                            <h1 class="text-xl font-bold">Etudiants</h1>
+							<?php foreach ($students as $student) : ?>
+							<span>
+								<input type="checkbox" name="students[]" id="student_<?= $student->id ?>" value="<?= $student->id ?>" />
+								<label for="student_<?= $student->id ?>"><?= $student->first_name ?> <?= $student->last_name ?></label>
+							</span>
+							<?php endforeach ?>
+						</div>
 
 
 						<input type="submit" value="Ajouter" class="part2 px-32 py-1 text-white bg-orange-light hover:bg-white hover:text-black cursor-pointer" />

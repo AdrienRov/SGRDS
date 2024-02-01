@@ -29,8 +29,8 @@ function getUserById($users, $id)
 
 
 <main class="flex-1">
-    <h1 class="text-3xl font-bold mx-3 my-3">Rattrapages</h1>
-
+    <div class="border border-gray-400 rounded-lg p-4 flex flex-col gap-1">
+    <h1 class="text-2xl font-bold">Rattrapages</h1>
     <div>
         <input type="text" name="search" id="search" placeholder="Rechercher" class="px-32 py-1" />
         <select name="semester" id="semester" class="px-32 py-1">
