@@ -25,10 +25,10 @@ class Database extends Config
      * The default database connection.
      */
     public array $default = [
-        'DSN'          => 'Postgre://jg210538:31337@woody.iut.univ-lehavre.fr:5432',
-        'hostname'     => 'woody.iut.univ-lehavre.fr',
-        'username'     => 'jg210538',
-        'password'     => '31337',
+        'DSN'          => 'Postgre://postgres:0000@127.0.0.1:5432',
+        'hostname'     => '127.0.0.1',
+        'username'     => 'postgres',
+        'password'     => '0000',
         'database'     => '',
         'DBDriver'     => 'Postgre',
         'DBPrefix'     => '',

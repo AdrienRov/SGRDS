@@ -29,7 +29,7 @@ class DirectorDashboard extends BaseController
         $session = \Config\Services::session();
         $user = $session->get('user');
 
-		$breadcrumbs = getBreadcrumbs(['Accueil'], ['DirectorDashboard']);
+		$breadcrumbs = getBreadcrumbs(['Accueil', 'Dashboard'], ['accueil', 'dashboard']);
 
         if ($session->has('user') || $user->type = 1) {
             return view('commons/CommonPage', [

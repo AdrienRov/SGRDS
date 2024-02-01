@@ -5,7 +5,7 @@ namespace App\Controllers;
 class AjoutRattrapage extends BaseController
 {
     public function __construct() {
-
+		helper('breadcrumbs');
     }
     public function Index($id) {
 
@@ -25,12 +25,7 @@ class AjoutRattrapage extends BaseController
         $participationModel = new \App\Models\ParticipationModel();
         $participations = $participationModel->where('exam_id', $id)->findAll();
 
-		$breadcrumbs = array(
-			array(
-				'title' => 'Rattrapages',
-				'link' => 'AjoutRattrapage'
-			)
-		);
+		$breadcrumbs = getBreadcrumbs(['Accueil', 'Rattrapages', 'Ajout'], ['accueil', 'rattrapages', 'ajout']);
 
         return view('commons/CommonPage', [
             'content' => view('AjoutRattrapage', [

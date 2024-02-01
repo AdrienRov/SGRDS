@@ -63,6 +63,16 @@
         ?>
 	</header>
 
+	<div class="text-sm breadcrumbs">
+		<?php
+		helper('breadcrumbs');
+
+		if (!empty($breadcrumbs)) {
+			echo generate_breadcrumbs($breadcrumbs);
+		}
+		?>
+	</div>
+
 	<?= $content; ?>
 
 	<footer class="bg-gray-800 text-white py-4">

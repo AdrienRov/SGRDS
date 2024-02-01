@@ -4,6 +4,11 @@ namespace App\Controllers;
 
 class UserProfile extends BaseController
 {
+	public function __construct()
+	{
+		helper('breadcrumbs');
+	}
+
     public function MyProfile()
     {
         $session = \Config\Services::session();
@@ -16,9 +21,12 @@ class UserProfile extends BaseController
 
         $user = $session->get('user');
 
+		$breadcrumbs = getBreadcrumbs(['Accueil', 'Mon profil'], ['accueil', 'userprofile']);
+
         return view('commons/CommonPage', [
             'content' => view('UserProfile', [
-                'user' => $user
+                'user' => $user,
+				'breadcrumbs' => $breadcrumbs
             ])
         ]);
     }
