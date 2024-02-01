@@ -28,15 +28,21 @@
 				<div class="flex flex-row">
 					<div class="flex flex-col gap-1">
 						<input type="text" name="comment" id="comment" placeholder="Commantaire" class="part2 px-32 py-1" />
-						<input type="datetime-local" name="date" id="date" placeholder="Date" value="<?= date('Y-m-d\TH:i:s') ?>" class="part2 px-32 py-1" />
-						<input type="number" name="duration" id="time" placeholder="Minutes" class="part2 px-32 py-1" />
+						<input type="datetime-local" name="date" id="date" placeholder="Date" value="<?= date('Y-m-d\TH:i:s') ?>" class="part2 px-32 py-1" required />
+						<input type="number" name="duration" id="time" placeholder="Minutes" class="part2 px-32 py-1" required />
 						<select name="type" id="type" class="part2 px-32 py-1">
 							<option value="0">Machine</option>
 							<option value="1">Papier</option>
 						</select>
 
-						<input type="text" name="class" id="class" placeholder="Class" class="part2 px-32 py-1" />
+						<input type="text" name="class" id="class" placeholder="Class" class="part2 px-32 py-1" required />
 						<input type="hidden" name="status" id="status" value="-1" />
+
+                        <select name="user_id" id="user_id" class="px-32 py-1">
+                            <?php foreach ($users as $user) : ?>
+                                <option value="<?= $user->id ?>"><?= $user->first_name ?> <?= $user->last_name ?></option>
+                            <?php endforeach ?>
+                        </select>
 
                         <!-- list students with checkbox to select, send as array of id in post -->
                         <?php foreach ($students as $student) : ?>
