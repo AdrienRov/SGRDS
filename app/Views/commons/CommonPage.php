@@ -47,7 +47,9 @@
                 <nav class="flex items-center" id="navbar">
                     <a href="<?= site_url('accueil') ?>" class="ml-4">Accueil</a>
                     <a href="<?= site_url('absences') ?>" class="ml-4">Absences</a>
-                    <a href="<?= site_url('AjoutExam') ?>" data-page="AjoutExam" class="ml-4 page-link">Ajout d'examen</a>
+                    <?php if (intval($_SESSION['user']->type) === 1) : ?>
+                        <a href="<?= site_url('AjoutExam') ?>" data-page="AjoutExam" class="ml-4 page-link">Ajout d'examen</a>
+                    <?php endif ?>
                     <a href="<?= site_url('rattrapages') ?>" data-page="rattrapages" class="ml-4 page-link">Rattrapages</a>
                     <a href="<?= site_url('UserProfile') ?>" data-page="UserProfile" class="ml-4 page-link">Mon profil</a>
                     <a href="<?= site_url('logout') ?>" data-page="logout" id="logoutBtn" class="ml-4 page-link">

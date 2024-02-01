@@ -18,7 +18,7 @@ $('.page-link[data-page="logout"]').on('click', function (e) {
         success: function (response) {
             if (response) {
                 console.log('logout');
-                loadPage('connexion');
+                window.location.href = '/';
             } else {
                 console.error('Erreur lors de la déconnexion.');
             }
