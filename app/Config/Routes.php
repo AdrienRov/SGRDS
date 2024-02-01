@@ -17,6 +17,9 @@ $routes->get('/test', 'Semester::FindAll');
 
 $routes->get('/AjoutExam', 'AjoutExam::Index');
 $routes->post('/AjoutExam/ajout', 'AjoutExam::Ajout');
+$routes->get('/AjoutExam/edit/([0-9]+)', 'AjoutExam::Edit/$1');
+$routes->post('/AjoutExam/edit/([0-9]+)', 'AjoutExam::EditExam/$1');
+
 
 $routes->get('/AjoutRattrapage/([0-9]+)', 'AjoutRattrapage::Index/$1');
 $routes->post('/AjoutRattrapage/ajout', 'AjoutRattrapage::Ajout');

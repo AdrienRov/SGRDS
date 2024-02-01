@@ -28,7 +28,7 @@
 				<div class="flex flex-row">
 					<div class="flex flex-col gap-1">
 						<input type="text" name="comment" id="comment" placeholder="Commantaire" class="part2 px-32 py-1" />
-						<input type="date" name="date" id="date" placeholder="Date" value="<?= date('Y-m-d') ?>" class="part2 px-32 py-1" />
+						<input type="datetime-local" name="date" id="date" placeholder="Date" value="<?= date('Y-m-d\TH:i:s') ?>" class="part2 px-32 py-1" />
 						<input type="number" name="duration" id="time" placeholder="Minutes" class="part2 px-32 py-1" />
 						<select name="type" id="type" class="part2 px-32 py-1">
 							<option value="0">Machine</option>
@@ -36,13 +36,16 @@
 						</select>
 
 						<input type="text" name="class" id="class" placeholder="Class" class="part2 px-32 py-1" />
-						<select name="status" id="status" class="part2 px-32 py-1">
-							<option value="0">Programmé</option>
-							<option value="1">En cours</option>
-							<option value="2">Neutralisé</option>
-							<option value="3">Annulé</option>
-							<option value="4">Passé</option>
-						</select>
+						<input type="hidden" name="status" id="status" value="-1" />
+
+                        <!-- list students with checkbox to select, send as array of id in post -->
+                        <?php foreach ($students as $student) : ?>
+                        <span>
+                            <input type="checkbox" name="students[]" id="student_<?= $student->id ?>" value="<?= $student->id ?>" />
+                            <label for="student_<?= $student->id ?>"><?= $student->first_name ?> <?= $student->last_name ?></label>
+                        </span>
+                        <?php endforeach ?>
+
 
 						<input type="submit" value="Ajouter" class="part2 px-32 py-1 bg-orange-400" />
 					</div>
@@ -52,8 +55,6 @@
 	</form>
 
 	<script>
-		const exams = <?= json_encode($exams) ?>;
-
 
 		$('.part2').hide();
 		$('#semester_id, #resource_id').on('change', () => {
