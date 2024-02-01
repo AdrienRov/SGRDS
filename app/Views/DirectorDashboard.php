@@ -25,8 +25,8 @@ function getResourceById($resources, $id)
     </div>
 
     <!-- Content for each tab -->
-    <div class="flex flex-col bg-zinc-300 rounded-lg px-16 mr-3 py-8  items-center">
-    <div id="semesters" class="tabcontent" style="display: block;">
+    <div class="flex flex-col items-center">
+    <div id="semesters" class="tabcontent bg-zinc-300 rounded-lg px-16 mr-3 py-8" style="display: block;">
     <h1 class="text-2xl">Semestres</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
@@ -64,7 +64,7 @@ function getResourceById($resources, $id)
             </div>
     </div>
 
-    <div id="resources" class="tabcontent">
+    <div id="resources" class="tabcontent bg-zinc-300 rounded-lg px-16 mr-3 py-8">
     <h1 class="text-2xl">Resources</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
@@ -97,7 +97,7 @@ function getResourceById($resources, $id)
             </div>
     </div>
 
-    <div id="users" class="tabcontent">
+    <div id="users" class="tabcontent bg-zinc-300 rounded-lg px-16 mr-3 py-8">
     <h1 class="text-2xl">Utilisateurs</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
@@ -192,7 +192,7 @@ function getResourceById($resources, $id)
             </div>
     </div>
 
-    <div id="students" class="tabcontent">
+    <div id="students" class="tabcontent bg-zinc-300 rounded-lg px-16 mr-3 py-8">
     <h1 class="text-2xl">Etudiants</h1>
             <div class="flex flex-row">
                 <div class="flex flex-col gap-1">
@@ -241,7 +241,6 @@ function getResourceById($resources, $id)
             </div>
         </div>
     </div>
-
     <script>
         //when page loads, show the first tab content and hide the rest
         document.getElementById("semesters").style.display = "block";
