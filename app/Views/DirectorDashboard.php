@@ -17,7 +17,7 @@ function getResourceById($resources, $id)
     <!-- Tabs -->
     <div class="flex justify-center">
         <div class="tabs space-x-4">
-            <button class="tablinks active inline-block p-4 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500" onclick="openTab(event, 'semesters')">Semestres</button>
+            <button class="tablinks active inline-block p-4 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500 text-orange-800" onclick="openTab(event, 'semesters')">Semestres</button>
             <button class="tablinks inline-block p-4 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500" onclick="openTab(event, 'resources')">Resources</button>
             <button class="tablinks inline-block p-4 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500" onclick="openTab(event, 'users')">Utilisateurs</button>
             <button class="tablinks inline-block p-4 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500" onclick="openTab(event, 'students')">Etudiants</button>
@@ -245,7 +245,6 @@ function getResourceById($resources, $id)
     <script>
         //when page loads, show the first tab content and hide the rest
         document.getElementById("semesters").style.display = "block";
-        document.getElementById("semesters").className += " text-orange-800";
         document.getElementById("resources").style.display = "none";
         document.getElementById("users").style.display = "none";
         document.getElementById("students").style.display = "none";
