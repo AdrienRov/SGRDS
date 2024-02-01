@@ -17,15 +17,15 @@ function getResourceById($resources, $id)
     <!-- Tabs -->
     <div class="flex justify-center">
         <div class="tabs space-x-4">
-            <button class="tablinks active inline-block p-4 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500 text-orange-800" onclick="openTab(event, 'semesters')">Semestres</button>
-            <button class="tablinks inline-block p-4 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500" onclick="openTab(event, 'resources')">Resources</button>
-            <button class="tablinks inline-block p-4 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500" onclick="openTab(event, 'users')">Utilisateurs</button>
-            <button class="tablinks inline-block p-4 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-500" onclick="openTab(event, 'students')">Etudiants</button>
+            <button class="tablinks active inline-block p-4 bg-gray-100 rounded-t-lg active text-orange-800" onclick="openTab(event, 'semesters')">Semestres</button>
+            <button class="tablinks inline-block p-4 bg-gray-100 rounded-t-lg active " onclick="openTab(event, 'resources')">Resources</button>
+            <button class="tablinks inline-block p-4 bg-gray-100 rounded-t-lg active " onclick="openTab(event, 'users')">Utilisateurs</button>
+            <button class="tablinks inline-block p-4 bg-gray-100 rounded-t-lg active " onclick="openTab(event, 'students')">Etudiants</button>
         </div>
     </div>
 
     <!-- Content for each tab -->
-    <div class="flex flex-col bg-zinc-300 rounded-lg px-16 mr-3 py-8 mt-8 flex items-center">
+    <div class="flex flex-col bg-zinc-300 rounded-lg px-16 mr-3 py-8  items-center">
     <div id="semesters" class="tabcontent" style="display: block;">
     <h1 class="text-2xl">Semestres</h1>
             <div class="flex flex-row">
