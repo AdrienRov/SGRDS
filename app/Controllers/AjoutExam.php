@@ -11,6 +11,7 @@ class AjoutExam extends BaseController
 
 
     public function Index() {
+        $session = \Config\Services::session();
 
         $semesterModel = new \App\Models\SemesterModel();
         $semesters = $semesterModel->findAll();
@@ -24,8 +25,16 @@ class AjoutExam extends BaseController
         $studentModel = new \App\Models\StudentModel();
         $students = $studentModel->findAll();
 
+        $userModel = new \App\Models\UserModel();
+        $users = $userModel->findAll();
+
 		$breadcrumbs = getBreadcrumbs(['Accueil', 'Rattrapages', 'Ajout'], ['accueil', 'rattrapages', 'ajout']);
 
+        if (!$session->has('user')) {
+            return view('commons/CommonPage', [
+                'content' => view('Connexion')
+            ]);
+        }
 
         return view('commons/CommonPage', [
             'content' => view('AjoutExam', [
@@ -33,6 +42,7 @@ class AjoutExam extends BaseController
                 'resources' => $resources,
                 'exams' => $exams,
                 'students' => $students,
+                'users' => $users,
 				'breadcrumbs' => $breadcrumbs
             ])
         ]);
@@ -47,13 +57,10 @@ class AjoutExam extends BaseController
             ]);
         }
 
-        $id = $session->get('user')->id;
-
         $request = \Config\Services::request();
         $examModel = new \App\Models\ExamModel();
         $exam = new \App\Entities\Exam();
         $exam->fill($request->getPost());
-        $exam->user_id = $id;
         $examModel->insert($exam);
 
         $id = $examModel->getInsertID();

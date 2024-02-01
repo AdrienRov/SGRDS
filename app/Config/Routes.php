@@ -9,6 +9,9 @@ $routes->get('/', 'Pages::Connexion');
 $routes->get('/connexion', 'Pages::Connexion');
 $routes->get('/logout', 'Pages::logout');
 $routes->post('/connexion', 'ConnexionController::checkConnexion');
+$routes->post('/forgotPassword', 'ConnexionController::ForgotPassword');
+$routes->get('/resetPassword/(.*)', 'ConnexionController::ResetPassword/$1');
+$routes->post('/resetPassword/(.*)', 'ConnexionController::ResetPasswordPost/$1');
 $routes->get('/accueil', 'Pages::Accueil');
 $routes->get('/absences', 'Pages::Absences');
 $routes->get('/rattrapages', 'Pages::Rattrapages');
@@ -23,6 +26,9 @@ $routes->post('/AjoutExam/edit/([0-9]+)', 'AjoutExam::EditExam/$1');
 
 $routes->get('/AjoutRattrapage/([0-9]+)', 'AjoutRattrapage::Index/$1');
 $routes->post('/AjoutRattrapage/ajout', 'AjoutRattrapage::Ajout');
+
+$routes->get('/UserProfile', 'UserProfile::MyProfile');
+$routes->post('/UserProfile/edit', 'UserProfile::EditProfile');
 
 
 $routes->get('/DirectorDashboard', 'DirectorDashboard::Index');

@@ -54,8 +54,8 @@ class AjoutRattrapage extends BaseController
         }
 
         $id = $session->get('user')->id;
-
         $request = \Config\Services::request();
+
         $examModel = new \App\Models\ExamModel();
         $exam = new \App\Entities\Exam();
         $exam->fill($request->getPost());
@@ -63,18 +63,36 @@ class AjoutRattrapage extends BaseController
         $examModel->insert($exam);
         $id = $examModel->getInsertID();
 
+        $studentModel = new \App\Models\StudentModel();
         $examStudentModel = new \App\Models\ParticipationModel();
-        // copy participations from original exam but only the one with status = 2
+        $resourceModel = new \App\Models\ResourceModel();
+        $resource = $resourceModel->find($exam->resource_id);
+
         $original_id = $request->getPost('original_id');
-        $participations = $examStudentModel->where('exam_id', $original_id)->findAll();
+        // array of checkbox, if checked, copy the participation from the original exam
+        $participations = $request->getPost('participations');
         foreach ($participations as $participation) {
-            if ($participation->status == 2) {
-                $examStudent = new \App\Entities\Participation();
-                $examStudent->exam_id = $id;
-                $examStudent->student_id = $participation->student_id;
-                $examStudent->status = 0;
-                $examStudentModel->insert($examStudent);
-            }
+            $examStudent = new \App\Entities\Participation();
+            $examStudent->exam_id = $id;
+            $examStudent->student_id = $participation;
+            $examStudent->status = 0;
+            $examStudentModel->insert($examStudent);
+
+            $student = $studentModel->find($participation);
+
+            $email = \Config\Services::email();
+            $email->setFrom('noreply@test.fr');
+            $email->setTo($student->email);
+            $email->setSubject('Rattrapage');
+            $email->setMailType('html');
+            $email->setMessage(view('emails/EmailRattrapage', [
+                'student' => $student,
+                'exam' => $exam,
+                'resource' => $resource
+            ]));
+            $email->send();
+
+
         }
 
         return redirect()->to('/rattrapages');

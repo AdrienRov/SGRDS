@@ -52,14 +52,23 @@ function getStudentById($students, $id)
 
                         <!-- list all students participating to the exam with a select to choose who was present, absent or justified -->
                         <?php foreach ($participations as $participation) {
-                            $studient = getStudentById($students, $participation->student_id);
+                            if ($participation->status == 1)
+                                continue;
+                            $student = getStudentById($students, $participation->student_id);
                             ?>
-                        <label for="participation_<?= $participation->id ?>"><?= $studient->first_name ?> <?= $studient->last_name ?></label>
-                        <select name="participations[]" id="participation_<?= $participation->student_id ?>" class="px-32 py-1">
-                            <option value="<?= $participation->student_id ?>-0">Absent</option>
-                            <option value="<?= $participation->student_id ?>-1">Présent</option>
-                            <option value="<?= $participation->student_id ?>-2">Justifié</option>
-                        </select>
+                                <span>
+                                    <label for="participation_<?= $participation->id ?>">
+                                        <?= $student->first_name ?> <?= $student->last_name ?>
+                                        <?php if ($participation->status == 0) : ?>
+                                            <span class="text-gray-400">Absent</span>
+                                        <?php elseif ($participation->status == 1) : ?>
+                                            <span class="text-green-400">Présent</span>
+                                        <?php elseif ($participation->status == 2) : ?>
+                                            <span class="text-yellow-400">Justifié</span>
+                                        <?php endif ?>
+                                    </label>
+                                    <input type="checkbox" name="participations[]" id="participation_<?= $student->id ?>" value="<?= $student->id ?>" <?= $participation->status == 2 ? 'checked' : '' ?> />
+                                </span>
                         <?php } ?>
 
 
