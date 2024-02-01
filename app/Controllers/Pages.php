@@ -21,12 +21,31 @@ class Pages extends BaseController
             ]);
         }
 
-        if ($session->get('user')->type == 1) {
-            return redirect()->to('/DirectorDashboard');
-        }
+        $examModel = new \App\Models\ExamModel();
+        // with original_id is not null
+        $exams = $examModel->where('original_id IS NULL')->findAll();
+
+        $semesterModel = new \App\Models\SemesterModel();
+        $semesters = $semesterModel->findAll();
+
+        $resourceModel = new \App\Models\ResourceModel();
+        $resources = $resourceModel->findAll();
+
+        $userModel = new \App\Models\UserModel();
+        $users = $userModel->findAll();
+
+        $user = $session->get('user');
+
         return view('commons/CommonPage', [
-            'content' => view('Accueil')
+            'content' => view('Accueil', [
+                'exams' => $exams,
+                'semesters' => $semesters,
+                'resources' => $resources,
+                'users' => $users,
+                'user' => $user
+            ])
         ]);
+
     }
 
     public function Absences()
